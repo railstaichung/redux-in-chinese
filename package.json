@@ -1,0 +1,44 @@
+{
+  "name": "redux-in-chinese",
+  "description": "Redux 中文文档",
+  "scripts": {
+    "clean": "rimraf _book",
+    "build": "gitbook build -g camsong/redux-in-chinese",
+    "watch": "gitbook serve",
+    "publish": "npm run clean && npm run build && cp CNAME _book && cd _book && git init && git commit --allow-empty -m 'update book' && git checkout -b gh-pages && touch .nojekyll && git add . && git commit -am 'update book' && git push git@github.com:camsong/redux-in-chinese gh-pages --force",
+    "offline": "gitbook pdf . offline/redux-in-chinese.pdf && gitbook epub . offline/redux-in-chinese.epub && gitbook mobi . offline/redux-in-chinese.mobi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camsong/redux-in-chinese.git"
+  },
+  "keywords": [
+    "flux",
+    "redux",
+    "reducer",
+    "react",
+    "reactjs",
+    "hot",
+    "reload",
+    "hmr",
+    "live",
+    "edit",
+    "webpack"
+  ],
+  "author": "Cam Song <neosoyn@gmail.com> (http://github.com/camsong)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camsong/redux-in-chinese/issues"
+  },
+  "homepage": "https://github.com/camsong/redux-in-chinese",
+  "devDependencies": {
+    "ebook-convert": "^1.0.0",
+    "gitbook-cli": "^0.3.4",
+    "gitbook-plugin-advanced-emoji": "^0.2.1",
+    "gitbook-plugin-edit-link": "^1.4.1",
+    "gitbook-plugin-ga": "^0.2.1",
+    "gitbook-plugin-prism": "^0.1.1",
+    "rimraf": "^2.3.4",
+    "svgexport": "^0.3.0"
+  }
+}

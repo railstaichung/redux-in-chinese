@@ -1,0 +1,1156 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>applyMiddleware | Redux 中文文档 Join the chat at https://gitter.im/camsong/redux-in-chinese</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.3.3">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../docs/api/bindActionCreators.html" />
+    
+    
+    <link rel="prev" href="../../docs/api/combineReducers.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book" data-level="8.4" data-basepath="../.." data-revision="Mon Nov 21 2016 10:04:52 GMT+0800 (CST)">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        
+        
+        
+
+        
+
+        
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        自述
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="docs/introduction/index.html">
+            
+                
+                    <a href="../../docs/introduction/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        介绍
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="docs/introduction/Motivation.html">
+            
+                
+                    <a href="../../docs/introduction/Motivation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        动机
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/introduction/ThreePrinciples.html">
+            
+                
+                    <a href="../../docs/introduction/ThreePrinciples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        三大原则
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="docs/introduction/PriorArt.html">
+            
+                
+                    <a href="../../docs/introduction/PriorArt.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        先前技术
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="docs/introduction/Ecosystem.html">
+            
+                
+                    <a href="../../docs/introduction/Ecosystem.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        生态系统
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="docs/introduction/Examples.html">
+            
+                
+                    <a href="../../docs/introduction/Examples.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        示例
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="docs/basics/index.html">
+            
+                
+                    <a href="../../docs/basics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        基础
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="docs/basics/Actions.html">
+            
+                
+                    <a href="../../docs/basics/Actions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Action
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="docs/basics/Reducers.html">
+            
+                
+                    <a href="../../docs/basics/Reducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Reducer
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="docs/basics/Store.html">
+            
+                
+                    <a href="../../docs/basics/Store.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        Store
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="docs/basics/DataFlow.html">
+            
+                
+                    <a href="../../docs/basics/DataFlow.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        数据流
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="docs/basics/UsageWithReact.html">
+            
+                
+                    <a href="../../docs/basics/UsageWithReact.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        搭配 React
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="docs/basics/ExampleTodoList.html">
+            
+                
+                    <a href="../../docs/basics/ExampleTodoList.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        示例：Todo List
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="docs/advanced/index.html">
+            
+                
+                    <a href="../../docs/advanced/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        高级
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="docs/advanced/AsyncActions.html">
+            
+                
+                    <a href="../../docs/advanced/AsyncActions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        异步 Action
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="docs/advanced/AsyncFlow.html">
+            
+                
+                    <a href="../../docs/advanced/AsyncFlow.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        异步数据流
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="docs/advanced/Middleware.html">
+            
+                
+                    <a href="../../docs/advanced/Middleware.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Middleware
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="docs/advanced/UsageWithReactRouter.html">
+            
+                
+                    <a href="../../docs/advanced/UsageWithReactRouter.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        搭配 React Router
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="docs/advanced/ExampleRedditAPI.html">
+            
+                
+                    <a href="../../docs/advanced/ExampleRedditAPI.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        示例：Reddit API
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="docs/advanced/NextSteps.html">
+            
+                
+                    <a href="../../docs/advanced/NextSteps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        下一步
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="docs/recipes/index.html">
+            
+                
+                    <a href="../../docs/recipes/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        技巧
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="docs/recipes/MigratingToRedux.html">
+            
+                
+                    <a href="../../docs/recipes/MigratingToRedux.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        迁移到 Redux
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="docs/recipes/UsingObjectSpreadOperator.html">
+            
+                
+                    <a href="../../docs/recipes/UsingObjectSpreadOperator.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        使用对象展开运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="docs/recipes/ReducingBoilerplate.html">
+            
+                
+                    <a href="../../docs/recipes/ReducingBoilerplate.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        减少样板代码
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="docs/recipes/ServerRendering.html">
+            
+                
+                    <a href="../../docs/recipes/ServerRendering.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        服务端渲染
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="docs/recipes/WritingTests.html">
+            
+                
+                    <a href="../../docs/recipes/WritingTests.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        编写测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="docs/recipes/ComputingDerivedData.html">
+            
+                
+                    <a href="../../docs/recipes/ComputingDerivedData.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        计算衍生数据
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="docs/recipes/ImplementingUndoHistory.html">
+            
+                
+                    <a href="../../docs/recipes/ImplementingUndoHistory.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        实现撤销重做
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="docs/recipes/StructuringReducers.html">
+            
+                
+                    <a href="../../docs/recipes/StructuringReducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                        组织 Reducer
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.8.1" data-path="docs/recipes/reducers/InitializingState.html">
+            
+                
+                    <a href="../../docs/recipes/reducers/InitializingState.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.1.</b>
+                        
+                        初始化 State
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="docs/FAQ.html">
+            
+                
+                    <a href="../../docs/FAQ.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        常见问题
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="docs/Troubleshooting.html">
+            
+                
+                    <a href="../../docs/Troubleshooting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        排错
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="docs/Glossary.html">
+            
+                
+                    <a href="../../docs/Glossary.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        词汇表
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="docs/api/index.html">
+            
+                
+                    <a href="../../docs/api/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        API 文档
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1" data-path="docs/api/createStore.html">
+            
+                
+                    <a href="../../docs/api/createStore.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                        createStore
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="docs/api/Store.html">
+            
+                
+                    <a href="../../docs/api/Store.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                        Store
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="docs/api/combineReducers.html">
+            
+                
+                    <a href="../../docs/api/combineReducers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                        combineReducers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="8.4" data-path="docs/api/applyMiddleware.html">
+            
+                
+                    <a href="../../docs/api/applyMiddleware.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                        applyMiddleware
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="docs/api/bindActionCreators.html">
+            
+                
+                    <a href="../../docs/api/bindActionCreators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.5.</b>
+                        
+                        bindActionCreators
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="docs/api/compose.html">
+            
+                
+                    <a href="../../docs/api/compose.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.6.</b>
+                        
+                        compose
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="docs/react-redux/index.html">
+            
+                
+                    <a href="../../docs/react-redux/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        react-redux 文档
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1" data-path="docs/react-redux/api.html">
+            
+                
+                    <a href="../../docs/react-redux/api.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                        API
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="docs/react-redux/troubleshooting.html">
+            
+                
+                    <a href="../../docs/react-redux/troubleshooting.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                        排错
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="10" >
+            
+                
+                    <a target="_blank" href="https:/github.com/react-guide/redux-tutorial-cn">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        redux-tutorial
+                    </a>
+            
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                Published with GitBook
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Table of Contents"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Font Settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Share"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">
+                    Share on Twitter
+                </button>
+                <button type="button" data-sharing="google-plus" class="button">
+                    Share on Google
+                </button>
+                <button type="button" data-sharing="facebook" class="button">
+                    Share on Facebook
+                </button>
+                <button type="button" data-sharing="weibo" class="button">
+                    Share on Weibo
+                </button>
+                <button type="button" data-sharing="instapaper" class="button">
+                    Share on Instapaper
+                </button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Google"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+    
+
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Redux 中文文档 Join the chat at https://gitter.im/camsong/redux-in-chinese</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <a id="edit-link" href="https://github.com/camsong/redux-in-chinese/tree/master/docs/api/applyMiddleware.md" class="btn fa fa-edit pull-left">&#xA0;&#xA0;&#x5F00;&#x59CB;&#x7EA0;&#x9519;</a><h1 id="-applymiddleware-middlewares"><code><span class="token function">applyMiddleware</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>middlewares<span class="token punctuation">)</span></code></h1>
+<p>&#x4F7F;&#x7528;&#x5305;&#x542B;&#x81EA;&#x5B9A;&#x4E49;&#x529F;&#x80FD;&#x7684; middleware &#x6765;&#x6269;&#x5C55; Redux &#x662F;&#x4E00;&#x79CD;&#x63A8;&#x8350;&#x7684;&#x65B9;&#x5F0F;&#x3002;Middleware &#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x5305;&#x88C5; store &#x7684; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x65B9;&#x6CD5;&#x6765;&#x8FBE;&#x5230;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x76EE;&#x7684;&#x3002;&#x540C;&#x65F6;&#xFF0C; middleware &#x8FD8;&#x62E5;&#x6709;&#x201C;&#x53EF;&#x7EC4;&#x5408;&#x201D;&#x8FD9;&#x4E00;&#x5173;&#x952E;&#x7279;&#x6027;&#x3002;&#x591A;&#x4E2A; middleware &#x53EF;&#x4EE5;&#x88AB;&#x7EC4;&#x5408;&#x5230;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x5F62;&#x6210; middleware &#x94FE;&#x3002;&#x5176;&#x4E2D;&#xFF0C;&#x6BCF;&#x4E2A; middleware &#x90FD;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x5FC3;&#x94FE;&#x4E2D;&#x5B83;&#x524D;&#x540E;&#x7684; middleware &#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#x3002;</p>
+<p>Middleware &#x6700;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x662F;&#x65E0;&#x9700;&#x5F15;&#x7528;&#x5927;&#x91CF;&#x4EE3;&#x7801;&#x6216;&#x4F9D;&#x8D56;&#x7C7B;&#x4F3C; <a href="https://github.com/Reactive-Extensions/RxJS" target="_blank">Rx</a> &#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x5B9E;&#x73B0;&#x5F02;&#x6B65; actions&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x8BA9;&#x4F60;&#x50CF; dispatch &#x4E00;&#x822C;&#x7684; actions &#x90A3;&#x6837; dispatch <a href="../Glossary.html#async-action">&#x5F02;&#x6B65; actions</a>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;<a href="https://github.com/gaearon/redux-thunk" target="_blank">redux-thunk</a> &#x652F;&#x6301; dispatch function&#xFF0C;&#x4EE5;&#x6B64;&#x8BA9; action creator &#x63A7;&#x5236;&#x53CD;&#x8F6C;&#x3002;&#x88AB; dispatch &#x7684; function &#x4F1A;&#x63A5;&#x6536; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x5B83;&#x3002;&#x8FD9;&#x7C7B;&#x7684; function &#x5C31;&#x79F0;&#x4E3A; <em>thunk</em>&#x3002;&#x53E6;&#x4E00;&#x4E2A; middleware &#x7684;&#x793A;&#x4F8B;&#x662F; <a href="https://github.com/acdlite/redux-promise" target="_blank">redux-promise</a>&#x3002;&#x5B83;&#x652F;&#x6301; dispatch &#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x7684; <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a> action&#xFF0C;&#x5E76;&#x4E14;&#x5728; Promise resolve &#x540E;&#x53EF;&#x4EE5; dispatch &#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684; action&#x3002;</p>
+<p>Middleware &#x5E76;&#x4E0D;&#x9700;&#x8981;&#x548C; <a href="createStore.html"><code>createStore</code></a> &#x7ED1;&#x5728;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F; Redux &#x67B6;&#x6784;&#x7684;&#x57FA;&#x7840;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF0C;&#x4F46;&#x5B83;&#x5E26;&#x6765;&#x7684;&#x76CA;&#x5904;&#x8BA9;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x6709;&#x5FC5;&#x8981;&#x5728; Redux &#x6838;&#x5FC3;&#x4E2D;&#x5305;&#x542B;&#x5BF9;&#x5B83;&#x7684;&#x652F;&#x6301;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x867D;&#x7136;&#x4E0D;&#x540C;&#x7684; middleware &#x53EF;&#x80FD;&#x5728;&#x6613;&#x7528;&#x6027;&#x548C;&#x7528;&#x6CD5;&#x4E0A;&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x4ECD;&#x88AB;&#x4F5C;&#x4E3A;&#x6269;&#x5C55; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x7684;&#x552F;&#x4E00;&#x6807;&#x51C6;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p>
+<h4 id="%E5%8F%82%E6%95%B0">&#x53C2;&#x6570;</h4>
+<ul>
+<li><code><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>middlewares</code> (<em>arguments</em>): &#x9075;&#x5FAA; Redux <em>middleware API</em> &#x7684;&#x51FD;&#x6570;&#x3002;&#x6BCF;&#x4E2A; middleware &#x63A5;&#x53D7; <a href="Store.html"><code>Store</code></a> &#x7684; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x548C; <a href="Store.html#getState"><code>getState</code></a> &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x547D;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x8BE5;&#x51FD;&#x6570;&#x4F1A;&#x88AB;&#x4F20;&#x5165;
+&#x88AB;&#x79F0;&#x4E3A; <code>next</code> &#x7684;&#x4E0B;&#x4E00;&#x4E2A; middleware &#x7684; dispatch &#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x63A5;&#x6536; action &#x7684;&#x65B0;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8C03;&#x7528; <code><span class="token function">next</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span></code>&#xFF0C;&#x6216;&#x8005;&#x5728;&#x5176;&#x4ED6;&#x9700;&#x8981;&#x7684;&#x65F6;&#x523B;&#x8C03;&#x7528;&#xFF0C;&#x751A;&#x81F3;&#x6839;&#x672C;&#x4E0D;&#x53BB;&#x8C03;&#x7528;&#x5B83;&#x3002;&#x8C03;&#x7528;&#x94FE;&#x4E2D;&#x6700;&#x540E;&#x4E00;&#x4E2A; middleware &#x4F1A;&#x63A5;&#x53D7;&#x771F;&#x5B9E;&#x7684; store &#x7684; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x65B9;&#x6CD5;&#x4F5C;&#x4E3A; <code>next</code> &#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x501F;&#x6B64;&#x7ED3;&#x675F;&#x8C03;&#x7528;&#x94FE;&#x3002;&#x6240;&#x4EE5;&#xFF0C;middleware &#x7684;&#x51FD;&#x6570;&#x7B7E;&#x540D;&#x662F; <code><span class="token punctuation">(</span><span class="token punctuation">{</span> getState<span class="token punctuation">,</span> dispatch <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> next <span class="token operator">=</span><span class="token operator">&gt;</span> action</code>&#x3002;</li>
+</ul>
+<h4 id="%E8%BF%94%E5%9B%9E%E5%80%BC">&#x8FD4;&#x56DE;&#x503C;</h4>
+<p>(<em>Function</em>) &#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x4E86; middleware &#x540E;&#x7684; store enhancer&#x3002;&#x8FD9;&#x4E2A; store enhancer &#x7684;&#x7B7E;&#x540D;&#x662F; <code>createStore <span class="token operator">=</span><span class="token operator">&gt;</span> createStore</code>&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x4E2A; <code>enhancer</code> &#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; <a href="createStore.html"><code><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a> &#x51FD;&#x6570;&#x3002;</p>
+<h4 id="%E7%A4%BA%E4%BE%8B-%E8%87%AA%E5%AE%9A%E4%B9%89-logger-middleware">&#x793A;&#x4F8B;: &#x81EA;&#x5B9A;&#x4E49; Logger Middleware</h4>
+<pre><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">}</span> from <span class="token string">&apos;redux&apos;</span>
+<span class="token keyword">import</span> todos from <span class="token string">&apos;./reducers&apos;</span>
+
+<span class="token keyword">function</span> <span class="token function">logger</span><span class="token punctuation">(</span><span class="token punctuation">{</span> getState <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>next<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>action<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;will dispatch&apos;</span><span class="token punctuation">,</span> action<span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// &#x8C03;&#x7528; middleware &#x94FE;&#x4E2D;&#x4E0B;&#x4E00;&#x4E2A; middleware &#x7684; dispatch&#x3002;</span>
+    <span class="token keyword">let</span> returnValue <span class="token operator">=</span> <span class="token function">next</span><span class="token punctuation">(</span>action<span class="token punctuation">)</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;state after dispatch&apos;</span><span class="token punctuation">,</span> <span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">// &#x4E00;&#x822C;&#x4F1A;&#x662F; action &#x672C;&#x8EAB;&#xFF0C;&#x9664;&#x975E;</span>
+    <span class="token comment" spellcheck="true">// &#x540E;&#x9762;&#x7684; middleware &#x4FEE;&#x6539;&#x4E86;&#x5B83;&#x3002;</span>
+    <span class="token keyword">return</span> returnValue
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
+  todos<span class="token punctuation">,</span>
+  <span class="token punctuation">[</span> <span class="token string">&apos;Use Redux&apos;</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>logger<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  type<span class="token punctuation">:</span> <span class="token string">&apos;ADD_TODO&apos;</span><span class="token punctuation">,</span>
+  text<span class="token punctuation">:</span> <span class="token string">&apos;Understand the middleware&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// (&#x5C06;&#x6253;&#x5370;&#x5982;&#x4E0B;&#x4FE1;&#x606F;:)</span>
+<span class="token comment" spellcheck="true">// will dispatch: { type: &apos;ADD_TODO&apos;, text: &apos;Understand the middleware&apos; }</span>
+<span class="token comment" spellcheck="true">// state after dispatch: [ &apos;Use Redux&apos;, &apos;Understand the middleware&apos; ]</span>
+</code></pre>
+<h4 id="%E7%A4%BA%E4%BE%8B-%E4%BD%BF%E7%94%A8-thunk-middleware-%E6%9D%A5%E5%81%9A%E5%BC%82%E6%AD%A5-action">&#x793A;&#x4F8B;: &#x4F7F;&#x7528; Thunk Middleware &#x6765;&#x505A;&#x5F02;&#x6B65; Action</h4>
+<pre><code class="lang-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> createStore<span class="token punctuation">,</span> combineReducers<span class="token punctuation">,</span> applyMiddleware <span class="token punctuation">}</span> from <span class="token string">&apos;redux&apos;</span>
+<span class="token keyword">import</span> thunk from <span class="token string">&apos;redux-thunk&apos;</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> as reducers from <span class="token string">&apos;./reducers&apos;</span>
+
+<span class="token keyword">let</span> reducer <span class="token operator">=</span> <span class="token function">combineReducers</span><span class="token punctuation">(</span>reducers<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// applyMiddleware &#x4E3A; createStore &#x6CE8;&#x5165;&#x4E86; middleware:</span>
+<span class="token keyword">let</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>reducer<span class="token punctuation">,</span> <span class="token function">applyMiddleware</span><span class="token punctuation">(</span>thunk<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">function</span> <span class="token function">fetchSecretSauce</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&apos;https://www.google.com/search?q=secret+sauce&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// &#x8FD9;&#x4E9B;&#x662F;&#x4F60;&#x5DF2;&#x719F;&#x6089;&#x7684;&#x666E;&#x901A; action creator&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x5B83;&#x4EEC;&#x8FD4;&#x56DE;&#x7684; action &#x4E0D;&#x9700;&#x8981;&#x4EFB;&#x4F55; middleware &#x5C31;&#x80FD;&#x88AB; dispatch&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x4F46;&#x662F;&#xFF0C;&#x4ED6;&#x4EEC;&#x53EA;&#x8868;&#x8FBE;&#x300C;&#x4E8B;&#x5B9E;&#x300D;&#xFF0C;&#x5E76;&#x4E0D;&#x8868;&#x8FBE;&#x300C;&#x5F02;&#x6B65;&#x6570;&#x636E;&#x6D41;&#x300D;</span>
+
+<span class="token keyword">function</span> <span class="token function">makeASandwich</span><span class="token punctuation">(</span>forPerson<span class="token punctuation">,</span> secretSauce<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> <span class="token string">&apos;MAKE_SANDWICH&apos;</span><span class="token punctuation">,</span>
+    forPerson<span class="token punctuation">,</span>
+    secretSauce
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">apologize</span><span class="token punctuation">(</span>fromPerson<span class="token punctuation">,</span> toPerson<span class="token punctuation">,</span> error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> <span class="token string">&apos;APOLOGIZE&apos;</span><span class="token punctuation">,</span>
+    fromPerson<span class="token punctuation">,</span>
+    toPerson<span class="token punctuation">,</span>
+    error
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">withdrawMoney</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    type<span class="token punctuation">:</span> <span class="token string">&apos;WITHDRAW&apos;</span><span class="token punctuation">,</span>
+    amount
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// &#x5373;&#x4F7F;&#x4E0D;&#x4F7F;&#x7528; middleware&#xFF0C;&#x4F60;&#x4E5F;&#x53EF;&#x4EE5; dispatch action&#xFF1A;</span>
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">withdrawMoney</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// &#x4F46;&#x662F;&#x600E;&#x6837;&#x5904;&#x7406;&#x5F02;&#x6B65; action &#x5462;&#xFF0C;</span>
+<span class="token comment" spellcheck="true">// &#x6BD4;&#x5982; API &#x8C03;&#x7528;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;&#xFF1F;</span>
+
+<span class="token comment" spellcheck="true">// &#x6765;&#x770B;&#x4E00;&#x4E0B; thunk&#x3002;</span>
+<span class="token comment" spellcheck="true">// Thunk &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x3002;</span>
+<span class="token comment" spellcheck="true">// &#x4E0B;&#x9762;&#x5C31;&#x662F;&#x4E00;&#x4E2A; thunk&#x3002;</span>
+
+<span class="token keyword">function</span> <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span>forPerson<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">// &#x63A7;&#x5236;&#x53CD;&#x8F6C;&#xFF01;</span>
+  <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x63A5;&#x6536; `dispatch` &#x7684;&#x51FD;&#x6570;&#x3002;</span>
+  <span class="token comment" spellcheck="true">// Thunk middleware &#x77E5;&#x9053;&#x5982;&#x4F55;&#x628A;&#x5F02;&#x6B65;&#x7684; thunk action &#x8F6C;&#x4E3A;&#x666E;&#x901A; action&#x3002;</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>dispatch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">fetchSecretSauce</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>
+      sauce <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">makeASandwich</span><span class="token punctuation">(</span>forPerson<span class="token punctuation">,</span> sauce<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      error <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">apologize</span><span class="token punctuation">(</span><span class="token string">&apos;The Sandwich Shop&apos;</span><span class="token punctuation">,</span> forPerson<span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Thunk middleware &#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x50CF; dispatch &#x666E;&#x901A; action</span>
+<span class="token comment" spellcheck="true">// &#x4E00;&#x6837; dispatch &#x5F02;&#x6B65;&#x7684; thunk action&#x3002;</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
+  <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;Me&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// &#x5B83;&#x751A;&#x81F3;&#x8D1F;&#x8D23;&#x56DE;&#x4F20; thunk &#x88AB; dispatch &#x540E;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#xFF0C;</span>
+<span class="token comment" spellcheck="true">// &#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4E32;&#x8FDE; Promise&#xFF0C;&#x8C03;&#x7528;&#x5B83;&#x7684; .then() &#x65B9;&#x6CD5;&#x3002;</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
+  <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;My wife&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;Done!&apos;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// &#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A; dispatch &#x5176;&#x5B83; action creator &#x91CC;</span>
+<span class="token comment" spellcheck="true">// &#x666E;&#x901A; action &#x548C;&#x5F02;&#x6B65; action &#x7684; action creator&#xFF0C;</span>
+<span class="token comment" spellcheck="true">// &#x800C;&#x4E14;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Promise &#x6765;&#x63A7;&#x5236;&#x6570;&#x636E;&#x6D41;&#x3002;</span>
+
+<span class="token keyword">function</span> <span class="token function">makeSandwichesForEverybody</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>dispatch<span class="token punctuation">,</span> getState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sandwiches<span class="token punctuation">.</span>isShopOpen<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+      <span class="token comment" spellcheck="true">// &#x8FD4;&#x56DE; Promise &#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x4F46;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;</span>
+      <span class="token comment" spellcheck="true">// &#x4E3A;&#x4E86;&#x8BA9;&#x8C03;&#x7528;&#x8005;&#x80FD;&#x591F;&#x5728;&#x5F02;&#x6B65;&#x7684; dispatch &#x7ED3;&#x679C;&#x4E0A;&#x76F4;&#x63A5;&#x8C03;&#x7528; .then() &#x65B9;&#x6CD5;&#x3002;</span>
+
+      <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">// &#x53EF;&#x4EE5; dispatch &#x666E;&#x901A; action &#x5BF9;&#x8C61;&#x548C;&#x5176;&#x5B83; thunk&#xFF0C;</span>
+    <span class="token comment" spellcheck="true">// &#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x6D41;&#x4E2D;&#x7EC4;&#x5408;&#x591A;&#x4E2A;&#x5F02;&#x6B65; action&#x3002;</span>
+
+    <span class="token keyword">return</span> <span class="token function">dispatch</span><span class="token punctuation">(</span>
+      <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;My Grandma&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+      Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;Me&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;My wife&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token string">&apos;Our kids&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">getState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>myMoney <span class="token operator">&gt;</span> <span class="token number">42</span> <span class="token operator">?</span>
+        <span class="token function">withdrawMoney</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span> <span class="token punctuation">:</span>
+        <span class="token function">apologize</span><span class="token punctuation">(</span><span class="token string">&apos;Me&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;The Sandwich Shop&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// &#x8FD9;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x65F6;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x53EF;&#x4EE5;&#x7B49;&#x5230;&#x6570;&#x636E;</span>
+<span class="token comment" spellcheck="true">// &#x51C6;&#x5907;&#x597D;&#x540E;&#xFF0C;&#x540C;&#x6B65;&#x7684;&#x6E32;&#x67D3;&#x5E94;&#x7528;&#x3002;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> from <span class="token string">&apos;react-dom/server&apos;</span>
+
+store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
+  <span class="token function">makeSandwichesForEverybody</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span>
+  response<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token operator">&lt;</span>MyApp store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// &#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x5BFC;&#x81F4;&#x7EC4;&#x4EF6;&#x7684; props &#x53D8;&#x5316;&#x7684;&#x65F6;&#x523B;</span>
+<span class="token comment" spellcheck="true">// dispatch &#x4E00;&#x4E2A;&#x5F02;&#x6B65; thunk action&#x3002;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> connect <span class="token punctuation">}</span> from <span class="token string">&apos;react-redux&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> from <span class="token string">&apos;react&apos;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SandwichShop</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
+      <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>forPerson<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentWillReceiveProps</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nextProps<span class="token punctuation">.</span>forPerson <span class="token operator">!</span><span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>forPerson<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span>
+        <span class="token function">makeASandwichWithSecretSauce</span><span class="token punctuation">(</span>nextProps<span class="token punctuation">.</span>forPerson<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>sandwiches<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">&apos;mustard&apos;</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">connect</span><span class="token punctuation">(</span>
+  state <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    sandwiches<span class="token punctuation">:</span> state<span class="token punctuation">.</span>sandwiches
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">(</span>SandwichShop<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="%E5%B0%8F%E8%B4%B4%E5%A3%AB">&#x5C0F;&#x8D34;&#x58EB;</h4>
+<ul>
+<li><p>Middleware &#x53EA;&#x662F;&#x5305;&#x88C5;&#x4E86; store &#x7684; <a href="Store.html#dispatch"><code>dispatch</code></a> &#x65B9;&#x6CD5;&#x3002;&#x6280;&#x672F;&#x4E0A;&#x8BB2;&#xFF0C;&#x4EFB;&#x4F55; middleware &#x80FD;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x90FD;&#x53EF;&#x80FD;&#x901A;&#x8FC7;&#x624B;&#x52A8;&#x5305;&#x88C5; <code>dispatch</code> &#x8C03;&#x7528;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x653E;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#x4F1A;&#x4F7F;&#x6574;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x6269;&#x5C55;&#x53D8;&#x7684;&#x5BB9;&#x6613;&#x5F97;&#x591A;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x9664;&#x4E86; <code>applyMiddleware</code>&#xFF0C;&#x4F60;&#x8FD8;&#x7528;&#x4E86;&#x5176;&#x5B83; store enhancer&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x628A; <code>applyMiddleware</code> &#x653E;&#x5230;&#x7EC4;&#x5408;&#x94FE;&#x7684;&#x524D;&#x9762;&#xFF0C;&#x56E0;&#x4E3A; middleware &#x53EF;&#x80FD;&#x4F1A;&#x5305;&#x542B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5B83;&#x5E94;&#x8BE5;&#x5728; <a href="https://github.com/gaearon/redux-devtools" target="_blank">redux-devtools</a> &#x524D;&#x9762;&#xFF0C;&#x5426;&#x5219; DevTools &#x5C31;&#x770B;&#x4E0D;&#x5230; Promise middleware &#x91CC; dispatch &#x7684; action &#x4E86;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x6709;&#x6761;&#x4EF6;&#x5730;&#x4F7F;&#x7528; middleware&#xFF0C;&#x8BB0;&#x4F4F;&#x53EA; import &#x9700;&#x8981;&#x7684;&#x90E8;&#x5206;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="token keyword">let</span> middleware <span class="token operator">=</span> <span class="token punctuation">[</span> a<span class="token punctuation">,</span> b <span class="token punctuation">]</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!</span><span class="token operator">==</span> <span class="token string">&apos;production&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> c <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;some-debug-middleware&apos;</span><span class="token punctuation">)</span>
+  <span class="token keyword">let</span> d <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;another-debug-middleware&apos;</span><span class="token punctuation">)</span>
+  middleware <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>middleware<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">createStore</span><span class="token punctuation">(</span>
+  reducer<span class="token punctuation">,</span>
+  preloadedState<span class="token punctuation">,</span>
+  <span class="token function">applyMiddleware</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>middleware<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x505A;&#x6709;&#x5229;&#x4E8E;&#x6253;&#x5305;&#x65F6;&#x53BB;&#x6389;&#x4E0D;&#x9700;&#x8981;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x51CF;&#x5C0F;&#x6253;&#x5305;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x3002;</p>
+</li>
+<li><p>&#x6709;&#x60F3;&#x8FC7; <code>applyMiddleware</code> &#x672C;&#x8D28;&#x662F;&#x4EC0;&#x4E48;&#x5417;&#xFF1F;&#x5B83;&#x80AF;&#x5B9A;&#x662F;&#x6BD4; middleware &#x8FD8;&#x5F3A;&#x5927;&#x7684;&#x6269;&#x5C55;&#x673A;&#x5236;&#x3002;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;<code>applyMiddleware</code> &#x53EA;&#x662F;&#x88AB;&#x79F0;&#x4E3A; Redux &#x6700;&#x5F3A;&#x5927;&#x7684;&#x6269;&#x5C55;&#x673A;&#x5236;&#x7684; <a href="../Glossary.html#store-enhancer">store enhancer</a> &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x8303;&#x4F8B;&#x800C;&#x5DF2;&#x3002;&#x4F60;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684; store enhancer&#x3002;&#x53E6;&#x4E00;&#x4E2A; store enhancer &#x793A;&#x4F8B;&#x662F; <a href="https://github.com/gaearon/redux-devtools" target="_blank">redux-devtools</a>&#x3002;Middleware &#x5E76;&#x6CA1;&#x6709; store enhancer &#x5F3A;&#x5927;&#xFF0C;&#x4F46;&#x5F00;&#x53D1;&#x8D77;&#x6765;&#x5374;&#x662F;&#x66F4;&#x5BB9;&#x6613;&#x7684;&#x3002;</p>
+</li>
+<li><p>Middleware &#x542C;&#x8D77;&#x6765;&#x6BD4;&#x5B9E;&#x9645;&#x96BE;&#x4E00;&#x4E9B;&#x3002;&#x771F;&#x6B63;&#x7406;&#x89E3; middleware &#x7684;&#x552F;&#x4E00;&#x529E;&#x6CD5;&#x662F;&#x4E86;&#x89E3;&#x73B0;&#x6709;&#x7684; middleware &#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x5E76;&#x5C1D;&#x8BD5;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x3002;&#x9700;&#x8981;&#x7684;&#x529F;&#x80FD;&#x53EF;&#x80FD;&#x9519;&#x7EFC;&#x590D;&#x6742;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x4F1A;&#x53D1;&#x73B0;&#x5927;&#x90E8;&#x5206; middleware &#x5B9E;&#x9645;&#x4E0A;&#x5F88;&#x5C0F;&#xFF0C;&#x53EA;&#x6709; 10 &#x884C;&#x5DE6;&#x53F3;&#xFF0C;&#x662F;&#x901A;&#x8FC7;&#x5BF9;&#x5B83;&#x4EEC;&#x7684;&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x6765;&#x8FBE;&#x5230;&#x6700;&#x7EC8;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+</li>
+<li><p>&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x591A;&#x4E2A; store enhancer&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="compose.html"><code><span class="token function">compose</span><span class="token punctuation">(</span><span class="token punctuation">)</span></code></a> &#x65B9;&#x6CD5;&#x3002;</p>
+</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../docs/api/combineReducers.html" class="navigation navigation-prev " aria-label="Previous page: combineReducers"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../docs/api/bindActionCreators.html" class="navigation navigation-next " aria-label="Next page: bindActionCreators"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"edit-link":{"base":"https://github.com/camsong/redux-in-chinese/tree/master","label":"开始纠错"},"ga":{"token":"UA-66122997-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-66122997-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>
