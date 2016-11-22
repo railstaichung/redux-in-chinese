@@ -1,10 +1,10 @@
 # Action
 
-首先，让我们来给 action 下个定义。
+首先，讓我們來給 action 下個定義。
 
-**Action** 是把数据从应用（译者注：这里之所以不叫 view 是因为这些数据有可能是服务器响应，用户输入或其它非 view 的数据 ）传到 store 的有效载荷。它是 store 数据的**唯一**来源。一般来说你会通过 [`store.dispatch()`](../api/Store.md#dispatch) 将 action 传到 store。
+**Action** 是把資料從應用（譯者注：這裡之所以不叫 view 是因為這些資料有可能是伺服器響應，使用者輸入或其它非 view 的資料 ）傳到 store 的有效載荷。它是 store 資料的**唯一**來源。一般來說你會通過 [`store.dispatch()`](../api/Store.md#dispatch) 將 action 傳到 store。
 
-添加新 todo 任务的 action 是这样的：
+新增新 todo 任務的 action 是這樣的：
 
 ```js
 const ADD_TODO = 'ADD_TODO'
@@ -17,19 +17,19 @@ const ADD_TODO = 'ADD_TODO'
 }
 ```
 
-Action 本质上是 JavaScript 普通对象。我们约定，action 内必须使用一个字符串类型的 `type` 字段来表示将要执行的动作。多数情况下，`type` 会被定义成字符串常量。当应用规模越来越大时，建议使用单独的模块或文件来存放 action。
+Action 本質上是 JavaScript 普通物件。我們約定，action 內必須使用一個字元串類型的 `type` 欄位來表示將要執行的動作。多數情況下，`type` 會被定義成字元串常量。當應用規模越來越大時，建議使用單獨的模組或檔案來存放 action。
 
 ```js
 import { ADD_TODO, REMOVE_TODO } from '../actionTypes'
 ```
 
->##### 样板文件使用提醒
+>##### 樣板檔案使用提醒
 
->使用单独的模块或文件来定义 action type 常量并不是必须的，甚至根本不需要定义。对于小应用来说，使用字符串做 action type 更方便些。不过，在大型应用中把它们显式地定义成常量还是利大于弊的。参照 [减少样板代码](../recipes/ReducingBoilerplate.md) 获取更多保持代码简洁的实践经验。
+>使用單獨的模組或檔案來定義 action type 常量並不是必須的，甚至根本不需要定義。對於小應用來說，使用字元串做 action type 更方便些。不過，在大型應用中把它們顯式地定義成常量還是利大於弊的。參照 [減少樣板程式碼](../recipes/ReducingBoilerplate.md) 獲取更多保持程式碼簡潔的實踐經驗。
 
-除了 `type` 字段外，action 对象的结构完全由你自己决定。参照 [Flux 标准 Action](https://github.com/acdlite/flux-standard-action) 获取关于如何构造 action 的建议。
+除了 `type` 欄位外，action 物件的結構完全由你自己決定。參照 [Flux 標準 Action](https://github.com/acdlite/flux-standard-action) 獲取關於如何構造 action 的建議。
 
-这时，我们还需要再添加一个 action type 来表示用户完成任务的动作。因为数据是存放在数组中的，所以我们通过下标 `index` 来引用特定的任务。而实际项目中一般会在新建数据的时候生成唯一的 ID 作为数据的引用标识。
+這時，我們還需要再新增一個 action type 來表示使用者完成任務的動作。因為資料是存放在陣列中的，所以我們通過下標 `index` 來引用特定的任務。而實際項目中一般會在新建資料的時候生成唯一的 ID 作為資料的引用標識。
 
 ```js
 {
@@ -38,9 +38,9 @@ import { ADD_TODO, REMOVE_TODO } from '../actionTypes'
 }
 ```
 
-**我们应该尽量减少在 action 中传递的数据**。比如上面的例子，传递 `index` 就比把整个任务对象传过去要好。
+**我們應該儘量減少在 action 中傳遞的資料**。比如上面的例子，傳遞 `index` 就比把整個任務物件傳過去要好。
 
-最后，再添加一个 action type 来表示当前的任务展示选项。
+最後，再新增一個 action type 來表示當前的任務展示選項。
 
 ```js
 {
@@ -49,11 +49,11 @@ import { ADD_TODO, REMOVE_TODO } from '../actionTypes'
 }
 ```
 
-## Action 创建函数
+## Action 建立函數
 
-**Action 创建函数** 就是生成 action 的方法。“action” 和 “action 创建函数” 这两个概念很容易混在一起，使用时最好注意区分。
+**Action 建立函數** 就是生成 action 的方法。“action” 和 “action 建立函數” 這兩個概念很容易混在一起，使用時最好注意區分。
 
-在 Redux 中的 action 创建函数只是简单的返回一个 action:
+在 Redux 中的 action 建立函數只是簡單的返回一個 action:
 
 ```js
 function addTodo(text) {
@@ -64,9 +64,9 @@ function addTodo(text) {
 }
 ```
 
-这样做将使 action 创建函数更容易被移植和测试。
+這樣做將使 action 建立函數更容易被移植和測試。
 
-在 [传统的 Flux](http://facebook.github.io/flux) 实现中，当调用 action 创建函数时，一般会触发一个 dispatch，像这样：
+在 [傳統的 Flux](http://facebook.github.io/flux) 實現中，當呼叫 action 建立函數時，一般會觸發一個 dispatch，像這樣：
 
 ```js
 function addTodoWithDispatch(text) {
@@ -78,38 +78,38 @@ function addTodoWithDispatch(text) {
 }
 ```
 
-不同的是，Redux 中只需把 action 创建函数的结果传给 `dispatch()` 方法即可发起一次 dispatch 过程。
+不同的是，Redux 中只需把 action 建立函數的結果傳給 `dispatch()` 方法即可發起一次 dispatch 過程。
 
 ```js
 dispatch(addTodo(text))
 dispatch(completeTodo(index))
 ```
 
-或者创建一个 **被绑定的 action 创建函数** 来自动 dispatch：
+或者建立一個 **被繫結的 action 建立函數** 來自動 dispatch：
 
 ```js
 const boundAddTodo = (text) => dispatch(addTodo(text))
 const boundCompleteTodo = (index) => dispatch(completeTodo(index))
 ```
 
-然后直接调用它们：
+然後直接呼叫它們：
 
 ```
 boundAddTodo(text);
 boundCompleteTodo(index);
 ```
 
-store 里能直接通过 [`store.dispatch()`](../api/Store.md#dispatch) 调用 `dispatch()` 方法，但是多数情况下你会使用 [react-redux](http://github.com/gaearon/react-redux) 提供的 `connect()` 帮助器来调用。[`bindActionCreators()`](../api/bindActionCreators.md) 可以自动把多个 action 创建函数 绑定到 `dispatch()` 方法上。
+store 裡能直接通過 [`store.dispatch()`](../api/Store.md#dispatch) 呼叫 `dispatch()` 方法，但是多數情況下你會使用 [react-redux](http://github.com/gaearon/react-redux) 提供的 `connect()` 幫助器來呼叫。[`bindActionCreators()`](../api/bindActionCreators.md) 可以自動把多個 action 建立函數 繫結到 `dispatch()` 方法上。
 
-Action 创建函数也可以是异步非纯函数。你可以通过阅读 [高级教程](../advanced/README.md) 中的 [异步 action](../advanced/AsyncActions.md)章节，学习如何处理 AJAX 响应和如何把 action 创建函数组合进异步控制流。因为基础教程中包含了阅读高级教程和异步 action 章节所需要的一些重要基础概念, 所以请在移步异步 action 之前, 务必先完成基础教程。
+Action 建立函數也可以是非同步非純函數。你可以通過閱讀 [高階教程](../advanced/README.md) 中的 [非同步 action](../advanced/AsyncActions.md)章節，學習如何處理 AJAX 響應和如何把 action 建立函陣列合進非同步控制流。因為基礎教程中包含了閱讀高階教程和非同步 action 章節所需要的一些重要基礎概念, 所以請在移步非同步 action 之前, 務必先完成基礎教程。
 
-## 源码
+## 源碼
 
 ### `actions.js`
 
 ```js
 /*
- * action 类型
+ * action 類型
  */
 
 export const ADD_TODO = 'ADD_TODO';
@@ -127,7 +127,7 @@ export const VisibilityFilters = {
 }
 
 /*
- * action 创建函数
+ * action 建立函數
  */
 
 export function addTodo(text) {
@@ -145,4 +145,4 @@ export function setVisibilityFilter(filter) {
 
 ## 下一步
 
-现在让我们 [开发一些 reducers](Reducers.md) 来说明在发起 action 后 state 应该如何更新。
+現在讓我們 [開發一些 reducers](Reducers.md) 來說明在發起 action 後 state 應該如何更新。

@@ -1,8 +1,8 @@
 # 示例: Todo 列表
 
-这是我们在[基础教程](./README.md)里开发的迷你型的任务管理应用的完整源码。
+這是我們在[基礎教程](./README.md)裡開發的迷你型的任務管理應用的完整源碼。
 
-## 入口文件
+## 入口檔案
 
 #### `index.js`
 
@@ -25,13 +25,13 @@ render(
 )
 ```
 
-## Action 创建函数和常量
+## Action 建立函數和常量
 
 #### `actions.js`
 
 ```js
 /*
- * action 类型
+ * action 類型
  */
 
 export const ADD_TODO = 'ADD_TODO';
@@ -49,7 +49,7 @@ export const VisibilityFilters = {
 };
 
 /*
- * action 创建函数
+ * action 建立函數
  */
 
 export function addTodo(text) {
@@ -114,7 +114,7 @@ const todoApp = combineReducers({
 export default todoApp
 ```
 
-## 容器组件
+## 容器元件
 
 #### `containers/App.js`
 
@@ -183,11 +183,11 @@ function select(state) {
   }
 }
 
-// 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
+// 包裝 component ，注入 dispatch 和 state 到其預設的 connect(select)(App) 中；
 export default connect(select)(App)
 ```
 
-## 展示组件
+## 展示元件
 
 #### `components/AddTodo.js`
 
