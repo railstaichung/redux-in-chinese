@@ -1,100 +1,103 @@
-# [Redux 中文文档](http://github.com/camsong/redux-in-chinese) [![Join the chat at https://gitter.im/camsong/redux-in-chinese](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/camsong/redux-in-chinese?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+ZH-CN to ZH-TW by [leo424y](https://github.com/leo424y)
+
+# [Redux 中文文檔](http://github.com/camsong/redux-in-chinese) [![Join the chat at https://gitter.im/camsong/redux-in-chinese](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/camsong/redux-in-chinese?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 <img src='https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67' height='60'>
 
 > :tada: :tada: :tada:
- 本文档从建立之初，帮助了非常多的小伙伴学习 Redux，也收到了 Redux 作者 Dan 的多次点赞。目前每天浏览量大概在一万左右。但由于几位作者工作都比较忙，很多文档已经过期，却也没有时间更新。如何你有时间，希望你和我们一起翻译，帮助更多人，欢迎提交 PR。不知何处下手不用怕？我们为你准备好了完善的 [ETC 翻译文档](https://github.com/react-guide/etc)。:point_right: 回复 issue 认领 https://github.com/camsong/redux-in-chinese/issues :heart: :heart: :heart:
+ 本文檔從建立之初，幫助了非常多的小夥伴學習 Redux，也收到了 Redux 作者 Dan 的多次點贊。目前每天瀏覽量大概在一萬左右。但由於幾位作者工作都比較忙，很多文檔已經過期，卻也沒有時間更新。如何你有時間，希望你和我們一起翻譯，幫助更多人，歡迎提交 PR。不知何處下手不用怕？我們為你準備好了完善的 [ETC 翻譯文檔](https://github.com/react-guide/etc)。:point_right: 回覆 issue 認領 https://github.com/camsong/redux-in-chinese/issues :heart: :heart: :heart:
+ 本文檔從建立之初，幫助了非常多的小夥伴學習 Redux，也收到了 Redux 作者 Dan 的多次點贊。目前每天瀏覽量大概在一萬左右。但由於幾位作者工作都比較忙，很多文檔已經過期，卻也沒有時間更新。如何你有時間，希望你和我們一起翻譯，幫助更多人，歡迎提交 PR。不知何處下手不用怕？我們為你準備好了完善的 [ETC 翻譯文檔](https://github.com/react-guide/etc)。:point_right: 回覆 issue 認領 https://github.com/camsong/redux-in-chinese/issues :heart: :heart: :heart:
 
-> 在线 Gitbook 地址：http://cn.redux.js.org/  
-> 英文原版：http://redux.js.org/  
-> 学了这个还不尽兴？推荐极精简的 [Redux Tutorial 教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)  
-> React 核心开发者写的 [React 设计思想](https://github.com/react-guide/react-basic)
+> 在線 Gitbook 地址：http://cn.redux.js.org/
+> 英文原版：http://redux.js.org/
+> 學了這個還不盡興？推薦極精簡的 [Redux Tutorial 教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
+> React 核心開發者寫的 [React 設計思想](https://github.com/react-guide/react-basic)
 
-> :arrow_down: 离线下载：[pdf 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.pdf)，[epub 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.epub)，[mobi 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.mobi)
+> :arrow_down: 離線下載：[pdf 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.pdf)，[epub 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.epub)，[mobi 格式](https://github.com/camsong/redux-in-chinese/raw/master/offline/redux-in-chinese.mobi)
 
-Redux 是 JavaScript 状态容器，提供可预测化的状态管理。  
+Redux 是 JavaScript 狀態容器，提供可預測化的狀態管理。
 
-可以让你构建一致化的应用，运行于不同的环境（客户端、服务器、原生应用），并且易于测试。不仅于此，它还提供
-超爽的开发体验，比如有一个[时间旅行调试器可以编辑后实时预览](https://github.com/gaearon/redux-devtools)。
+可以讓你構建一致化的應用，運行於不同的環境（客戶端、服務器、原生應用），並且易於測試。不僅於此，它還提供
+超爽的開發體驗，比如有一個[時間旅行調試器可以編輯後實時預覽](https://github.com/gaearon/redux-devtools)。
 
-Redux 除了和 [React](https://facebook.github.io/react/) 一起用外，还支持其它界面库。  
-它体小精悍（只有2kB）且没有任何依赖。
+Redux 除了和 [React](https://facebook.github.io/react/) 一起用外，還支持其它界面庫。
+它體小精悍（只有2kB）且沒有任何依賴。
 
-### 评价
+### 評價
 
->[“Love what you’re doing with Redux”](https://twitter.com/jingc/status/616608251463909376)  
+>[“Love what you’re doing with Redux”](https://twitter.com/jingc/status/616608251463909376)
 >Jing Chen，Flux 作者
 
->[“I asked for comments on Redux in FB's internal JS discussion group, and it was universally praised. Really awesome work.”](https://twitter.com/fisherwebdev/status/616286955693682688)  
+>[“I asked for comments on Redux in FB's internal JS discussion group, and it was universally praised. Really awesome work.”](https://twitter.com/fisherwebdev/status/616286955693682688)
 >Bill Fisher，Flux 作者
 
->[“It's cool that you are inventing a better Flux by not doing Flux at all.”](https://twitter.com/andrestaltz/status/616271392930201604)  
+>[“It's cool that you are inventing a better Flux by not doing Flux at all.”](https://twitter.com/andrestaltz/status/616271392930201604)
 >André Staltz，Cycle 作者
 
-### 开始之前
+### 開始之前
 
-> 也推荐阅读你可能并不需要Redux：  
+> 也推薦閱讀你可能並不需要Redux：
 > [“You Might Not Need Redux”](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367)
 
-### 开发经历
+### 開發經歷
 
-Redux 的开发最早开始于我在准备 React Europe 演讲[热加载与时间旅行](https://www.youtube.com/watch?v=xsSnOQynTHs)的时候，当初的目标是创建一个状态管理库，来提供最简化 API，但同时做到行为的完全可预测，因此才得以实现日志打印，热加载，时间旅行，同构应用，录制和重放，而不需要任何开发参与。
+Redux 的開發最早開始於我在準備 React Europe 演講[熱加載與時間旅行](https://www.youtube.com/watch?v=xsSnOQynTHs)的時候，當初的目標是創建一個狀態管理庫，來提供最簡化 API，但同時做到行為的完全可預測，因此才得以實現日誌打印，熱加載，時間旅行，同構應用，錄製和重放，而不需要任何開發參與。
 
-### 启示
+### 啟示
 
-Redux 由 [Flux](http://facebook.github.io/flux/) 演变而来，但受 [Elm](http://elm-lang.org/guide/architecture) 的启发，避开了 Flux 的复杂性。  
-不管你有没有使用过它们，只需几分钟就能上手 Redux。
+Redux 由 [Flux](http://facebook.github.io/flux/) 演變而來，但受 [Elm](http://elm-lang.org/guide/architecture) 的啟發，避開了 Flux 的複雜性。
+不管你有沒有使用過它們，只需幾分鐘就能上手 Redux。
 
-### 安装
+### 安裝
 
-安装稳定版：
+安裝穩定版：
 
 ```
 npm install --save redux
 ```
 
-以上基于使用 [npm](https://www.npmjs.com/) 来做包管理工具的情况下。
+以上基於使用 [npm](https://www.npmjs.com/) 來做包管理工具的情況下。
 
-否则你可以直接在 [unpkg 上访问这些文件](https://unpkg.com/redux/)，下载下来，或者把让你的包管理工具指向它。
+否則你可以直接在 [unpkg 上訪問這些文件](https://unpkg.com/redux/)，下載下來，或者把讓你的包管理工具指向它。
 
-一般情况下人们认为 Redux 就是一些 [CommonJS](http://webpack.github.io/docs/commonjs.html) 模块的集合。这些模块就是你在使用 [Webpack](http://webpack.github.io/)、[Browserify](http://browserify.org/)、或者 Node 环境时引入的。如果你想追求时髦并使用 [Rollup](http://rollupjs.org/)，也是支持的。
+一般情況下人們認為 Redux 就是一些 [CommonJS](http://webpack.github.io/docs/commonjs.html) 模塊的集合。這些模塊就是你在使用 [Webpack](http://webpack.github.io/)、[Browserify](http://browserify.org/)、或者 Node 環境時引入的。如果你想追求時髦並使用 [Rollup](http://rollupjs.org/)，也是支持的。
 
-你也可以不使用模块打包工具。`redux` 的 npm 包里 [`dist` 目录](https://unpkg.com/redux/dist/)包含了预编译好的生产环境和开发环境下的 [UMD](https://github.com/umdjs/umd) 文件。可以直接使用，而且支持大部分流行的 JavaScript 包加载器和环境。比如，你可以直接在页面上的 `<script>` 标签 中引入 UMD 文件，也可以[让 `Bower` 来安装](https://github.com/reactjs/redux/pull/1181#issuecomment-167361975)。UMD 文件可以让你使用 `window.Redux` 全局变量来访问 Redux。
+你也可以不使用模塊打包工具。`redux` 的 npm 包裡 [`dist` 目錄](https://unpkg.com/redux/dist/)包含了預編譯好的生產環境和開發環境下的 [UMD](https://github.com/umdjs/umd) 文件。可以直接使用，而且支持大部分流行的 JavaScript 包加載器和環境。比如，你可以直接在頁面上的 `<script>` 標籤 中引入 UMD 文件，也可以[讓 `Bower` 來安裝](https://github.com/reactjs/redux/pull/1181#issuecomment-167361975)。UMD 文件可以讓你使用 `window.Redux` 全局變量來訪問 Redux。
 
-Redux 源文件由 ES2015 编写，但是会预编译到 CommonJS 和 UMD 规范的 ES5，所以它可以支持 [任何现代浏览器](http://caniuse.com/#feat=es5)。你不必非得使用 Babel 或模块打包器来使用 Redux。
+Redux 源文件由 ES2015 編寫，但是會預編譯到 CommonJS 和 UMD 規範的 ES5，所以它可以支持 [任何現代瀏覽器](http://caniuse.com/#feat=es5)。你不必非得使用 Babel 或模塊打包器來使用 Redux。
 
 #### 附加包
 
-多数情况下，你还需要使用 [React 绑定库](http://github.com/gaearon/react-redux)和[开发者工具](http://github.com/gaearon/redux-devtools)。
+多數情況下，你還需要使用 [React 綁定庫](http://github.com/gaearon/react-redux)和[開發者工具](http://github.com/gaearon/redux-devtools)。
 
 ```
 npm install --save react-redux
 npm install --save-dev redux-devtools
 ```
 
-需要提醒的是，和 Redux 不同，很多 Redux 生态下的包并不提供 UMD 文件，所以为了提升开发体验，我们建议使用像 [Webpack](http://webpack.github.io/) 和 [Browserify](http://browserify.org/) 这样的 CommonJS 模块打包器。
+需要提醒的是，和 Redux 不同，很多 Redux 生態下的包並不提供 UMD 文件，所以為了提升開發體驗，我們建議使用像 [Webpack](http://webpack.github.io/) 和 [Browserify](http://browserify.org/) 這樣的 CommonJS 模塊打包器。
 
-### 要点
+### 要點
 
-应用中所有的 state 都以一个对象树的形式储存在一个单一的 *store* 中。  
-惟一改变 state 的办法是触发 *action*，一个描述发生什么的对象。  
-为了描述 action 如何改变 state 树，你需要编写 *reducers*。
+應用中所有的 state 都以一個對象樹的形式儲存在一個單一的 *store* 中。
+惟一改變 state 的辦法是觸發 *action*，一個描述發生什麼的對象。
+為了描述 action 如何改變 state 樹，你需要編寫 *reducers*。
 
-就是这样！
+就是這樣！
 
 ```js
 import { createStore } from 'redux';
 
 /**
- * 这是一个 reducer，形式为 (state, action) => state 的纯函数。
- * 描述了 action 如何把 state 转变成下一个 state。
+ * 這是一個 reducer，形式為 (state, action) => state 的純函數。
+ * 描述了 action 如何把 state 轉變成下一個 state。
  *
- * state 的形式取决于你，可以是基本类型、数组、对象、
- * 甚至是 Immutable.js 生成的数据结构。惟一的要点是
- * 当 state 变化时需要返回全新的对象，而不是修改传入的参数。
+ * state 的形式取決於你，可以是基本類型、數組、對象、
+ * 甚至是 Immutable.js 生成的數據結構。惟一的要點是
+ * 當 state 變化時需要返回全新的對象，而不是修改傳入的參數。
  *
- * 下面例子使用 `switch` 语句和字符串来做判断，但你可以写帮助类(helper)
- * 根据不同的约定（如方法映射）来判断，只要适用你的项目即可。
+ * 下面例子使用 `switch` 語句和字符串來做判斷，但你可以寫幫助類(helper)
+ * 根據不同的約定（如方法映射）來判斷，只要適用你的項目即可。
  */
 function counter(state = 0, action) {
   switch (action.type) {
@@ -107,17 +110,17 @@ function counter(state = 0, action) {
   }
 }
 
-// 创建 Redux store 来存放应用的状态。
+// 創建 Redux store 來存放應用的狀態。
 // API 是 { subscribe, dispatch, getState }。
 let store = createStore(counter);
 
-// 可以手动订阅更新，也可以事件绑定到视图层。
+// 可以手動訂閱更新，也可以事件綁定到視圖層。
 store.subscribe(() =>
   console.log(store.getState())
 );
 
-// 改变内部 state 惟一方法是 dispatch 一个 action。
-// action 可以被序列化，用日记记录和储存下来，后期还可以以回放的方式执行
+// 改變內部 state 惟一方法是 dispatch 一個 action。
+// action 可以被序列化，用日記記錄和儲存下來，後期還可以以回放的方式執行
 store.dispatch({ type: 'INCREMENT' });
 // 1
 store.dispatch({ type: 'INCREMENT' });
@@ -125,68 +128,68 @@ store.dispatch({ type: 'INCREMENT' });
 store.dispatch({ type: 'DECREMENT' });
 // 1
 ```
-你应该把要做的修改变成一个普通对象，这个对象被叫做 *action*，而不是直接修改 state。然后编写专门的函数来决定每个 action 如何改变应用的 state，这个函数被叫做 *reducer*。
+你應該把要做的修改變成一個普通對象，這個對象被叫做 *action*，而不是直接修改 state。然後編寫專門的函數來決定每個 action 如何改變應用的 state，這個函數被叫做 *reducer*。
 
-如果你以前使用 Flux，那么你只需要注意一个重要的区别。Redux 没有 Dispatcher 且不支持多个 store。相反，只有一个单一的 store 和一个根级的 reduce 函数（reducer）。随着应用不断变大，你应该把根级的 reducer 拆成多个小的 reducers，分别独立地操作 state 树的不同部分，而不是添加新的 stores。这就像一个 React 应用只有一个根级的组件，这个根组件又由很多小组件构成。
+如果你以前使用 Flux，那麼你只需要注意一個重要的區別。Redux 沒有 Dispatcher 且不支持多個 store。相反，只有一個單一的 store 和一個根級的 reduce 函數（reducer）。隨著應用不斷變大，你應該把根級的 reducer 拆成多個小的 reducers，分別獨立地操作 state 樹的不同部分，而不是添加新的 stores。這就像一個 React 應用只有一個根級的組件，這個根組件又由很多小組件構成。
 
-用这个架构开发计数器有点杀鸡用牛刀，但它的美在于做复杂应用和庞大系统时优秀的扩展能力。由于它可以用 action 追溯应用的每一次修改，因此才有强大的开发工具。如录制用户会话并回放所有 action 来重现它。
+用這個架構開發計數器有點殺雞用牛刀，但它的美在於做複雜應用和龐大系統時優秀的擴展能力。由於它可以用 action 追溯應用的每一次修改，因此才有強大的開發工具。如錄製用戶會話並回放所有 action 來重現它。
 
-### Redux 作者教你学
+### Redux 作者教你學
 
-[Redux 入门](https://egghead.io/series/getting-started-with-redux) 是由 Redux 作者 Dan Abramov 讲述的包含 30 个视频的课程。它涵盖了本文档的“基础”部分，同时还有不可变（immutability）、测试、Redux 最佳实践、搭配 React 使用的讲解。**这个课程将永久免费。**
+[Redux 入門](https://egghead.io/series/getting-started-with-redux) 是由 Redux 作者 Dan Abramov 講述的包含 30 個視頻的課程。它涵蓋了本文檔的“基礎”部分，同時還有不可變（immutability）、測試、Redux 最佳實踐、搭配 React 使用的講解。**這個課程將永久免費。**
 
-还等什么？
+還等什麼？
 
-#### [开始观看 30 个免费视频！](https://egghead.io/series/getting-started-with-redux)
+#### [開始觀看 30 個免費視頻！](https://egghead.io/series/getting-started-with-redux)
 
-### 文档
+### 文檔
 
-* [介绍](http://camsong.github.io/redux-in-chinese//docs/introduction/index.html)
-* [基础](http://camsong.github.io/redux-in-chinese//docs/basics/index.html)
-* [高级](http://camsong.github.io/redux-in-chinese//docs/advanced/index.html)
+* [介紹](http://camsong.github.io/redux-in-chinese//docs/introduction/index.html)
+* [基礎](http://camsong.github.io/redux-in-chinese//docs/basics/index.html)
+* [高級](http://camsong.github.io/redux-in-chinese//docs/advanced/index.html)
 * [技巧](http://camsong.github.io/redux-in-chinese//docs/recipes/index.html)
-* [常见问题](http://camsong.github.io/redux-in-chinese//docs/FAQ.html)
-* [排错](http://camsong.github.io/redux-in-chinese//docs/Troubleshooting.html)
-* [词汇表](http://camsong.github.io/redux-in-chinese//docs/Glossary.html)
-* [API 文档](http://camsong.github.io/redux-in-chinese//docs/api/index.html)
+* [常見問題](http://camsong.github.io/redux-in-chinese//docs/FAQ.html)
+* [排錯](http://camsong.github.io/redux-in-chinese//docs/Troubleshooting.html)
+* [詞彙表](http://camsong.github.io/redux-in-chinese//docs/Glossary.html)
+* [API 文檔](http://camsong.github.io/redux-in-chinese//docs/api/index.html)
 
 ### 示例
 
 * [原生 Counter](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#counter-vanilla) ([source](https://github.com/rackt/redux/tree/master/examples/counter-vanilla))
 * [Counter](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#counter) ([source](https://github.com/rackt/redux/tree/master/examples/counter))
 * [Todos](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#todos) ([source](https://github.com/rackt/redux/tree/master/examples/todos))
-* [可撤销的 Todos](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#todos-with-undo) ([source](https://github.com/rackt/redux/tree/master/examples/todos-with-undo))
+* [可撤銷的 Todos](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#todos-with-undo) ([source](https://github.com/rackt/redux/tree/master/examples/todos-with-undo))
 * [TodoMVC](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#todomvc) ([source](https://github.com/rackt/redux/tree/master/examples/todomvc))
-* [购物车](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#shopping-cart) ([source](https://github.com/rackt/redux/tree/master/examples/shopping-cart))
+* [購物車](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#shopping-cart) ([source](https://github.com/rackt/redux/tree/master/examples/shopping-cart))
 * [Tree View](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#tree-view) ([source](https://github.com/rackt/redux/tree/master/examples/tree-view))
-* [异步](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#async) ([source](https://github.com/rackt/redux/tree/master/examples/async))
+* [異步](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#async) ([source](https://github.com/rackt/redux/tree/master/examples/async))
 * [Universal](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#universal) ([source](https://github.com/rackt/redux/tree/master/examples/universal))
 * [Real World](http://camsong.github.io/redux-in-chinese/docs/introduction/Examples.html#real-world) ([source](https://github.com/rackt/redux/tree/master/examples/real-world))
 
-如果你是 NPM 新手，创建和运行一个新的项目有难度，或者不知道上面的代码应该放到哪里使用，请下载 [simplest-redux-example](https://github.com/jackielii/simplest-redux-example) 这个示例，它是一个集成了 React、Browserify 和 Redux 的最简化的示例项目。
+如果你是 NPM 新手，創建和運行一個新的項目有難度，或者不知道上面的代碼應該放到哪裡使用，請下載 [simplest-redux-example](https://github.com/jackielii/simplest-redux-example) 這個示例，它是一個集成了 React、Browserify 和 Redux 的最簡化的示例項目。
 
 ### 交流
 
-打开 Slack，加入 [Reactiflux](http://reactiflux.com/) 中的 **#redux** 频道。
+打開 Slack，加入 [Reactiflux](http://reactiflux.com/) 中的 **#redux** 頻道。
 
-### 感谢
+### 感謝
 
-* [Elm 架构](https://github.com/evancz/elm-architecture-tutorial) 介绍了使用 reducers 来操作 state 数据；
-* [Turning the database inside-out](http://blog.confluent.io/2015/03/04/turning-the-database-inside-out-with-apache-samza/) 大开脑洞;
-* [ClojureScript 里使用 Figwheel](http://www.youtube.com/watch?v=j-kj2qwJa_E) for convincing me that re-evaluation should “just work”;
-* [Webpack](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) 热模块替换;
-* [Flummox](https://github.com/acdlite/flummox) 教我在 Flux 里去掉样板文件和单例对象；
-* [disto](https://github.com/threepointone/disto) 演示使用热加载 Stores 的可行性；
-* [NuclearJS](https://github.com/optimizely/nuclear-js) 证明这样的架构性能可以很好；
+* [Elm 架構](https://github.com/evancz/elm-architecture-tutorial) 介紹了使用 reducers 來操作 state 數據；
+* [Turning the database inside-out](http://blog.confluent.io/2015/03/04/turning-the-database-inside-out-with-apache-samza/) 大開腦洞;
+* [ClojureScript 裡使用 Figwheel](http://www.youtube.com/watch?v=j-kj2qwJa_E) for convincing me that re-evaluation should “just work”;
+* [Webpack](https://github.com/webpack/docs/wiki/hot-module-replacement-with-webpack) 熱模塊替換;
+* [Flummox](https://github.com/acdlite/flummox) 教我在 Flux 裡去掉樣板文件和單例對象；
+* [disto](https://github.com/threepointone/disto) 演示使用熱加載 Stores 的可行性；
+* [NuclearJS](https://github.com/optimizely/nuclear-js) 證明這樣的架構性能可以很好；
 * [Om](https://github.com/omcljs/om) 普及 state 惟一原子化的思想。
-* [Cycle](https://github.com/staltz/cycle) 介绍了 function 是如何在很多场景都是最好的工具；
-* [React](https://github.com/facebook/react) 实践启迪。
+* [Cycle](https://github.com/staltz/cycle) 介紹了 function 是如何在很多場景都是最好的工具；
+* [React](https://github.com/facebook/react) 實踐啟迪。
 
 ### 作者列表
 
-> 定期更新，谢谢各位辛勤贡献
+> 定期更新，謝謝各位辛勤貢獻
 
-* [Cam Song 会影@camsong](https://github.com/camsong)
+* [Cam Song 會影@camsong](https://github.com/camsong)
 * [Jovey Zheng@jovey-zheng](https://github.com/jovey-zheng)
 * [Pandazki@pandazki](https://github.com/pandazki)
 * [Yuwei Wang@yuweiw823](https://github.com/yuweiw823)
@@ -197,19 +200,19 @@ store.dispatch({ type: 'DECREMENT' });
 * [Zhe Zhang@zhe](https://github.com/zhe)
 * [alcat2008](https://github.com/alcat2008)
 * [Frozenme](https://github.com/Frozenme)
-* [姜杨军@Yogi-Jiang](https://github.com/Yogi-Jiang)
+* [姜楊軍@Yogi-Jiang](https://github.com/Yogi-Jiang)
 * [Byron Bai@happybai](https://github.com/happybai)
 * [Guo Cheng@guocheng](https://github.com/guocheng)
 * [omytea](https://github.com/omytea)
 * [Fred Wang](https://github.com/namelos)
 * [Amo Wu](https://github.com/amowu)
 * [C. T. Lin](https://github.com/chentsulin)
-* [钱利江](https://github.com/timqian)
-* [云谦](https://github.com/sorrycc)
+* [錢利江](https://github.com/timqian)
+* [雲謙](https://github.com/sorrycc)
 * [denvey](https://github.com/denvey)
-* [三点](https://github.com/zousandian)
+* [三點](https://github.com/zousandian)
 * [Eric Wong](https://github.com/ele828)
 * [Owen Yang](https://github.com/owenyang0)
 * [Cai Huanyu](https://github.com/Darmody)
 
-**本文档翻译流程符合 [ETC 翻译规范](https://github.com/react-guide/ETC)，欢迎你来一起完善**
+**本文檔翻譯流程符合 [ETC 翻譯規範](https://github.com/react-guide/ETC)，歡迎你來一起完善**
