@@ -1,6 +1,6 @@
 # 示例：Reddit API
 
-这是一个[高级教程](README.md)的例子，包含使用 Reddit API 请求文章标题的全部源码。
+這是一個[高階教程](README.md)的例子，包含使用 Reddit API 請求文章標題的全部源碼。
 
 ## 入口
 
@@ -180,7 +180,7 @@ export default function configureStore(initialState) {
 }
 ```
 
-## 容器型组件
+## 容器型元件
 
 #### `containers/Root.js`
 
@@ -213,7 +213,7 @@ import Picker from '../components/Picker'
 import Posts from '../components/Posts'
 
 class AsyncApp extends Component {
-  constructor(props) {
+  function Object() { [native code] }(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
     this.handleRefreshClick = this.handleRefreshClick.bind(this)
@@ -310,7 +310,7 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(AsyncApp)
 ```
 
-## 展示型组件
+## 展示型元件
 
 #### `components/Picker.js`
 

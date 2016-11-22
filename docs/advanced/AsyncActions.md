@@ -1,28 +1,28 @@
-# 异步 Action
+# 非同步 Action
 
-在[基础教程](../basics/README.md)中，我们创建了一个简单的 todo 应用。它只有同步操作。每当 dispatch action 时，state 会被立即更新。
+在[基礎教程](../basics/README.md)中，我們建立了一個簡單的 todo 應用。它只有同步操作。每當 dispatch action 時，state 會被立即更新。
 
-在本教程中，我们将开发一个不同的，异步的应用。它将使用 Reddit API 来获取并显示指定 subreddit 下的帖子列表。那么 Redux 究竟是如何处理异步数据流的呢？
+在本教程中，我們將開發一個不同的，非同步的應用。它將使用 Reddit API 來獲取並顯示指定 subreddit 下的帖子列表。那麼 Redux 究竟是如何處理非同步資料流的呢？
 
 ## Action
 
-当调用异步 API 时，有两个非常关键的时刻：发起请求的时刻，和接收到响应的时刻 （也可能是超时）。
+當呼叫非同步 API 時，有兩個非常關鍵的時刻：發起請求的時刻，和接收到響應的時刻 （也可能是超時）。
 
-这两个时刻都可能会更改应用的 state；为此，你需要 dispatch 普通的同步 action。一般情况下，每个 API 请求都需要 dispatch 至少三种 action：
+這兩個時刻都可能會更改應用的 state；為此，你需要 dispatch 普通的同步 action。一般情況下，每個 API 請求都需要 dispatch 至少三種 action：
 
-* **一种通知 reducer 请求开始的 action。**
+* **一種通知 reducer 請求開始的 action。**
 
-  对于这种 action，reducer 可能会切换一下 state 中的 `isFetching` 标记。以此来告诉 UI 来显示加载界面。
+  對於這種 action，reducer 可能會切換一下 state 中的 `isFetching` 標記。以此來告訴 UI 來顯示載入介面。
 
-* **一种通知 reducer 请求成功的 action。**
+* **一種通知 reducer 請求成功的 action。**
 
-  对于这种 action，reducer 可能会把接收到的新数据合并到 state 中，并重置 `isFetching`。UI 则会隐藏加载界面，并显示接收到的数据。
+  對於這種 action，reducer 可能會把接收到的新資料合併到 state 中，並重置 `isFetching`。UI 則會隱藏載入介面，並顯示接收到的資料。
 
-* **一种通知 reducer 请求失败的 action。**
+* **一種通知 reducer 請求失敗的 action。**
 
-  对于这种 action，reducer 可能会重置 `isFetching`。另外，有些 reducer 会保存这些失败信息，并在 UI 里显示出来。
+  對於這種 action，reducer 可能會重置 `isFetching`。另外，有些 reducer 會儲存這些失敗資訊，並在 UI 裡顯示出來。
 
-为了区分这三种 action，可能在 action 里添加一个专门的 `status` 字段作为标记位：
+為了區分這三種 action，可能在 action 裡新增一個專門的 `status` 欄位作為標記位：
 
 ```js
 { type: 'FETCH_POSTS' }
@@ -30,7 +30,7 @@
 { type: 'FETCH_POSTS', status: 'success', response: { ... } }
 ```
 
-又或者为它们定义不同的 type：
+又或者為它們定義不同的 type：
 
 ```js
 { type: 'FETCH_POSTS_REQUEST' }
@@ -38,14 +38,14 @@
 { type: 'FETCH_POSTS_SUCCESS', response: { ... } }
 ```
 
-究竟使用带有标记位的同一个 action，还是多个 action type 呢，完全取决于你。这应该是你的团队共同达成的约定。使用多个 type 会降低犯错误的机率，但是如果你使用像 [redux-actions](https://github.com/acdlite/redux-actions) 这类的辅助库来生成 action 创建函数和 reducer 的话，这就完全不是问题了。
+究竟使用帶有標記位的同一個 action，還是多個 action type 呢，完全取決於你。這應該是你的團隊共同達成的約定。使用多個 type 會降低犯錯誤的機率，但是如果你使用像 [redux-actions](https://github.com/acdlite/redux-actions) 這類的輔助庫來生成 action 建立函數和 reducer 的話，這就完全不是問題了。
 
-无论使用哪种约定，一定要在整个应用中保持统一。  
-在本教程中，我们将使用不同的 type 来做。
+無論使用哪種約定，一定要在整個應用中保持統一。
+在本教程中，我們將使用不同的 type 來做。
 
-## 同步 Action 创建函数（Action Creator）
+## 同步 Action 建立函數（Action Creator）
 
-下面先定义几个同步的 action 类型 和 action 创建函数。比如，用户可以选择要显示的 subreddit：
+下面先定義幾個同步的 action 類型 和 action 建立函數。比如，使用者可以選擇要顯示的 subreddit：
 
 #### `actions.js`
 
@@ -60,7 +60,7 @@ export function selectSubreddit(subreddit) {
 }
 ```
 
-也可以按 "刷新" 按钮来更新它：
+也可以按 "重新整理" 按鈕來更新它：
 
 ```js
 export const INVALIDATE_SUBREDDIT = 'INVALIDATE_SUBREDDIT'
@@ -73,9 +73,9 @@ export function invalidatesubreddit(subreddit) {
 }
 ```
 
-这些是用户操作来控制的 action。也有另外一类 action，是由网络请求来控制。后面会介绍如何使用它们，现在，我们只是来定义它们。
+這些是使用者操作來控制的 action。也有另外一類 action，是由網路請求來控制。後面會介紹如何使用它們，現在，我們只是來定義它們。
 
-当需要获取指定 subreddit 的帖子的时候，需要 dispatch `REQUEST_POSTS` action：
+當需要獲取指定 subreddit 的帖子的時候，需要 dispatch `REQUEST_POSTS` action：
 
 ```js
 export const REQUEST_POSTS = 'REQUEST_POSTS'
@@ -88,9 +88,9 @@ export function requestPosts(subreddit) {
 }
 ```
 
-把 `REQUEST_POSTS` 和 `SELECT_SUBREDDIT` 或 `INVALIDATE_SUBREDDIT` 分开很重要。虽然它们的发生有先后顺序，但随着应用变得复杂，有些用户操作（比如，预加载最流行的 subreddit，或者一段时间后自动刷新过期数据）后需要马上请求数据。路由变化时也可能需要请求数据，所以一开始如果把请求数据和特定的 UI 事件耦合到一起是不明智的。
+把 `REQUEST_POSTS` 和 `SELECT_SUBREDDIT` 或 `INVALIDATE_SUBREDDIT` 分開很重要。雖然它們的發生有先後順序，但隨著應用變得複雜，有些使用者操作（比如，預載入最流行的 subreddit，或者一段時間後自動重新整理過期資料）後需要馬上請求資料。路由變化時也可能需要請求資料，所以一開始如果把請求資料和特定的 UI 事件耦合到一起是不明智的。
 
-最后，当收到请求响应时，我们会 dispatch `RECEIVE_POSTS`：
+最後，當收到請求響應時，我們會 dispatch `RECEIVE_POSTS`：
 
 ```js
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
@@ -105,21 +105,21 @@ export function receivePosts(subreddit, json) {
 }
 ```
 
-以上就是现在需要知道的所有内容。稍后会介绍如何把 dispatch action 与网络请求结合起来。
+以上就是現在需要知道的所有內容。稍後會介紹如何把 dispatch action 與網路請求結合起來。
 
->##### 错误处理须知
+>##### 錯誤處理須知
 
->在实际应用中，网络请求失败时也需要 dispatch action。虽然在本教程中我们并不做错误处理，但是这个 [真实场景的案例](../introduction/Examples.html#real-world) 会演示一种实现方案。
+>在實際應用中，網路請求失敗時也需要 dispatch action。雖然在本教程中我們並不做錯誤處理，但是這個 [真實場景的案例](../introduction/Examples.html#real-world) 會演示一種實現方案。
 
-## 设计 state 结构
+## 設計 state 結構
 
-就像在基础教程中，在功能开发前你需要 [设计应用的 state 结构](../basics/Reducers.md#designing-the-state-shape)。在写异步代码的时候，需要考虑更多的 state，所以我们要仔细考虑一下。
+就像在基礎教程中，在功能開發前你需要 [設計應用的 state 結構](../basics/Reducers.md#designing-the-state-shape)。在寫非同步程式碼的時候，需要考慮更多的 state，所以我們要仔細考慮一下。
 
-这部分内容通常让初学者感到迷惑，因为选择哪些信息才能清晰地描述异步应用的 state 并不直观，还有怎么用一个树来把这些信息组织起来。
+這部分內容通常讓初學者感到迷惑，因為選擇哪些資訊才能清晰地描述非同步應用的 state 並不直觀，還有怎麼用一個樹來把這些資訊組織起來。
 
-我们以最通用的案例来打头：列表。Web 应用经常需要展示一些内容的列表。比如，帖子的列表，朋友的列表。首先要明确应用要显示哪些列表。然后把它们分开储存在 state 中，这样你才能对它们分别做缓存并且在需要的时候再次请求更新数据。
+我們以最通用的案例來打頭：列表。Web 應用經常需要展示一些內容的列表。比如，帖子的列表，朋友的列表。首先要明確應用要顯示哪些列表。然後把它們分開儲存在 state 中，這樣你才能對它們分別做快取並且在需要的時候再次請求更新資料。
 
-"Reddit 头条" 应用会长这个样子：
+"Reddit 頭條" 應用會長這個樣子：
 
 ```js
 {
@@ -149,17 +149,17 @@ export function receivePosts(subreddit, json) {
 }
 ```
 
-下面列出几个要点：
+下面列出幾個要點：
 
-* 分开存储 subreddit 信息，是为了缓存所有 subreddit。当用户来回切换 subreddit 时，可以立即更新，同时在不需要的时候可以不请求数据。不要担心把所有帖子放到内存中（会浪费内存）：除非你需要处理成千上万条帖子，同时用户还很少关闭标签页，否则你不需要做任何清理。
+* 分開儲存 subreddit 資訊，是為了快取所有 subreddit。當使用者來回切換 subreddit 時，可以立即更新，同時在不需要的時候可以不請求資料。不要擔心把所有帖子放到記憶體中（會浪費記憶體）：除非你需要處理成千上萬條帖子，同時使用者還很少關閉標籤頁，否則你不需要做任何清理。
 
-* 每个帖子的列表都需要使用 `isFetching` 来显示进度条，`didInvalidate` 来标记数据是否过期，`lastUpdated` 来存放数据最后更新时间，还有 `items` 存放列表信息本身。在实际应用中，你还需要存放 `fetchedPageCount` 和 `nextPageUrl` 这样分页相关的 state。
+* 每個帖子的列表都需要使用 `isFetching` 來顯示進度條，`didInvalidate` 來標記資料是否過期，`lastUpdated` 來存放資料最後更新時間，還有 `items` 存放列表資訊本身。在實際應用中，你還需要存放 `fetchedPageCount` 和 `nextPageUrl` 這樣分頁相關的 state。
 
->##### 嵌套内容须知
+>##### 巢狀內容須知
 
->在这个示例中，接收到的列表和分页信息是存在一起的。但是，这种做法并不适用于有互相引用的嵌套内容的场景，或者用户可以编辑列表的场景。想像一下用户需要编辑一个接收到的帖子，但这个帖子在 state tree 的多个位置重复出现。这会让开发变得非常困难。
+>在這個示例中，接收到的列表和分頁資訊是存在一起的。但是，這種做法並不適用於有互相引用的巢狀內容的場景，或者使用者可以編輯列表的場景。想像一下使用者需要編輯一個接收到的帖子，但這個帖子在 state tree 的多個位置重複出現。這會讓開發變得非常困難。
 
->如果你有嵌套内容，或者用户可以编辑接收到的内容，你需要把它们分开存放在 state 中，就像数据库中一样。在分页信息中，只使用它们的 ID 来引用。这可以让你始终保持数据更新。[真实场景的案例](../introduction/Examples.html#real-world) 中演示了这种做法，结合 [normalizr](https://github.com/gaearon/normalizr) 来把嵌套的 API 响应数据范式化，最终的 state 看起来是这样：
+>如果你有巢狀內容，或者使用者可以編輯接收到的內容，你需要把它們分開存放在 state 中，就像資料庫中一樣。在分頁資訊中，只使用它們的 ID 來引用。這可以讓你始終保持資料更新。[真實場景的案例](../introduction/Examples.html#real-world) 中演示了這種做法，結合 [normalizr](https://github.com/gaearon/normalizr) 來把巢狀的 API 響應資料正規化化，最終的 state 看起來是這樣：
 
 >```js
 > {
@@ -200,15 +200,15 @@ export function receivePosts(subreddit, json) {
 > }
 >```
 
->在本教程中，我们不会对内容进行范式化，但是在一个复杂些的应用中你可能需要使用。
+>在本教程中，我們不會對內容進行正規化化，但是在一個複雜些的應用中你可能需要使用。
 
-## 处理 Action
+## 處理 Action
 
-在讲 dispatch action 与网络请求结合使用细节前，我们为上面定义的 action 开发一些 reducer。
+在講 dispatch action 與網路請求結合使用細節前，我們為上面定義的 action 開發一些 reducer。
 
->##### Reducer 组合须知
+>##### Reducer 組合須知
 
->这里，我们假设你已经学习过 [`combineReducers()`](../api/combineReducers.md) 并理解 reducer 组合，还有 [基础章节](../basics/README.md) 中的 [拆分 Reducer](../basics/Reducers.md#splitting-reducers)。如果还没有，请[先学习](../basics/Reducers.md#splitting-reducers)。
+>這裡，我們假設你已經學習過 [`combineReducers()`](../api/combineReducers.md) 並理解 reducer 組合，還有 [基礎章節](../basics/README.md) 中的 [拆分 Reducer](../basics/Reducers.md#splitting-reducers)。如果還沒有，請[先學習](../basics/Reducers.md#splitting-reducers)。
 
 #### `reducers.js`
 
@@ -276,16 +276,16 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
-上面代码有两个有趣的点：
+上面程式碼有兩個有趣的點：
 
-* 使用 ES6 计算属性语法，使用 `Object.assign()` 来简洁高效地更新 `state[action.subreddit]`。这个：
+* 使用 ES6 計算屬性語法，使用 `Object.assign()` 來簡潔高效地更新 `state[action.subreddit]`。這個：
 
   ```js
   return Object.assign({}, state, {
     [action.subreddit]: posts(state[action.subreddit], action)
   })
   ```
-  与下面代码等价：
+  與下面程式碼等價：
 
   ```js
   let nextState = {}
@@ -293,17 +293,17 @@ export default rootReducer
   return Object.assign({}, state, nextState)
   ```
 
-* 我们提取出 `posts(state, action)` 来管理指定帖子列表的 state。这仅仅使用 [reducer 组合](../basics/Reducers.md#splitting-reducers)而已！我们还可以借此机会把 reducer 分拆成更小的 reducer，这种情况下，我们把对象内列表的更新代理到了 `posts` reducer 上。在[真实场景的案例](../introduction/Examples.html#real-world)中甚至更进一步，里面介绍了如何做一个 reducer 工厂来生成参数化的分页 reducer。
+* 我們提取出 `posts(state, action)` 來管理指定帖子列表的 state。這僅僅使用 [reducer 組合](../basics/Reducers.md#splitting-reducers)而已！我們還可以藉此機會把 reducer 分拆成更小的 reducer，這種情況下，我們把物件內列表的更新代理到了 `posts` reducer 上。在[真實場景的案例](../introduction/Examples.html#real-world)中甚至更進一步，裡面介紹瞭如何做一個 reducer 工廠來生成參數化的分頁 reducer。
 
-记住 reducer 只是函数而已，所以你可以尽情使用函数组合和高阶函数这些特性。
+記住 reducer 只是函數而已，所以你可以盡情使用函陣列合和高階函數這些特性。
 
-## 异步 action 创建函数
+## 非同步 action 建立函數
 
-最后，如何把[之前定义](#synchronous-action-creators)的同步 action 创建函数和 网络请求结合起来呢？标准的做法是使用 [Redux Thunk middleware](https://github.com/gaearon/redux-thunk)。要引入 `redux-thunk` 这个专门的库才能使用。我们[后面](Middleware.md)会介绍 middleware 大体上是如何工作的；目前，你只需要知道一个要点：通过使用指定的 middleware，action 创建函数除了返回 action 对象外还可以返回函数。这时，这个 action 创建函数就成为了 [thunk](https://en.wikipedia.org/wiki/Thunk)。
+最後，如何把[之前定義](#synchronous-action-creators)的同步 action 建立函數和 網路請求結合起來呢？標準的做法是使用 [Redux Thunk middleware](https://github.com/gaearon/redux-thunk)。要引入 `redux-thunk` 這個專門的庫才能使用。我們[後面](Middleware.md)會介紹 middleware 大體上是如何工作的；目前，你只需要知道一個要點：通過使用指定的 middleware，action 建立函數除了返回 action 物件外還可以返回函數。這時，這個 action 建立函數就成為了 [thunk](https://en.wikipedia.org/wiki/Thunk)。
 
-当 action 创建函数返回函数时，这个函数会被 Redux Thunk middleware 执行。这个函数并不需要保持纯净；它还可以带有副作用，包括执行异步 API 请求。这个函数还可以 dispatch action，就像 dispatch 前面定义的同步 action 一样。
+當 action 建立函數返回函數時，這個函數會被 Redux Thunk middleware 執行。這個函數並不需要保持純淨；它還可以帶有副作用，包括執行非同步 API 請求。這個函數還可以 dispatch action，就像 dispatch 前面定義的同步 action 一樣。
 
-我们仍可以在 `actions.js` 里定义这些特殊的 thunk action 创建函数。
+我們仍可以在 `actions.js` 裡定義這些特殊的 thunk action 建立函數。
 
 #### `actions.js`
 
@@ -328,64 +328,64 @@ function receivePosts(subreddit, json) {
   }
 }
 
-// 来看一下我们写的第一个 thunk action 创建函数！
-// 虽然内部操作不同，你可以像其它 action 创建函数 一样使用它：
+// 來看一下我們寫的第一個 thunk action 建立函數！
+// 雖然內部操作不同，你可以像其它 action 建立函數 一樣使用它：
 // store.dispatch(fetchPosts('reactjs'))
 
 export function fetchPosts(subreddit) {
 
-  // Thunk middleware 知道如何处理函数。
-  // 这里把 dispatch 方法通过参数的形式传给函数，
-  // 以此来让它自己也能 dispatch action。
+  // Thunk middleware 知道如何處理函數。
+  // 這裡把 dispatch 方法通過參數的形式傳給函數，
+  // 以此來讓它自己也能 dispatch action。
 
   return function (dispatch) {
 
-    // 首次 dispatch：更新应用的 state 来通知
-    // API 请求发起了。
+    // 首次 dispatch：更新應用的 state 來通知
+    // API 請求發起了。
 
     dispatch(requestPosts(subreddit))
 
-    // thunk middleware 调用的函数可以有返回值，
-    // 它会被当作 dispatch 方法的返回值传递。
+    // thunk middleware 呼叫的函數可以有返回值，
+    // 它會被當作 dispatch 方法的返回值傳遞。
 
-    // 这个案例中，我们返回一个等待处理的 promise。
-    // 这并不是 redux middleware 所必须的，但这对于我们而言很方便。
+    // 這個案例中，我們返回一個等待處理的 promise。
+    // 這並不是 redux middleware 所必須的，但這對於我們而言很方便。
 
     return fetch(`http://www.subreddit.com/r/${subreddit}.json`)
       .then(response => response.json())
       .then(json =>
 
         // 可以多次 dispatch！
-        // 这里，使用 API 请求结果来更新应用的 state。
+        // 這裡，使用 API 請求結果來更新應用的 state。
 
         dispatch(receivePosts(subreddit, json))
       )
 
-      // 在实际应用中，还需要
-      // 捕获网络请求的异常。
+      // 在實際應用中，還需要
+      // 捕獲網路請求的異常。
   }
 }
 ```
 
->##### `fetch` 使用须知
+>##### `fetch` 使用須知
 
->本示例使用了 [`fetch` API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)。它是替代 `XMLHttpRequest` 用来发送网络请求的非常新的 API。由于目前大多数浏览器原生还不支持它，建议你使用 [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch) 库：
+>本示例使用了 [`fetch` API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API)。它是替代 `XMLHttpRequest` 用來傳送網路請求的非常新的 API。由於目前大多數瀏覽器原生還不支援它，建議你使用 [`isomorphic-fetch`](https://github.com/matthew-andrews/isomorphic-fetch) 庫：
 
 >```js
-// 每次使用 `fetch` 前都这样调用一下
+// 每次使用 `fetch` 前都這樣呼叫一下
 >import fetch from 'isomorphic-fetch'
 >```
 
->在底层，它在浏览器端使用 [`whatwg-fetch` polyfill](https://github.com/github/fetch)，在服务器端使用 [`node-fetch`](https://github.com/bitinn/node-fetch)，所以如果当你把应用改成[同构](https://medium.com/@mjackson/universal-javascript-4761051b7ae9)时，并不需要改变 API 请求。
+>在底層，它在瀏覽器端使用 [`whatwg-fetch` polyfill](https://github.com/github/fetch)，在伺服器端使用 [`node-fetch`](https://github.com/bitinn/node-fetch)，所以如果當你把應用改成[同構](https://medium.com/@mjackson/universal-javascript-4761051b7ae9)時，並不需要改變 API 請求。
 
->注意，`fetch` polyfill 假设你已经使用了 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的 polyfill。确保你使用 Promise polyfill 的一个最简单的办法是在所有应用代码前启用 Babel 的 ES6 polyfill：
+>注意，`fetch` polyfill 假設你已經使用了 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的 polyfill。確保你使用 Promise polyfill 的一個最簡單的辦法是在所有應用程式碼前啟用 Babel 的 ES6 polyfill：
 
 >```js
->// 在应用中其它任何代码执行前调用一次
+>// 在應用中其它任何程式碼執行前呼叫一次
 >import 'babel-polyfill'
 >```
 
-我们是如何在 dispatch 机制中引入 Redux Thunk middleware 的呢？我们使用了 [`applyMiddleware()`](../api/applyMiddleware.md)，如下：
+我們是如何在 dispatch 機制中引入 Redux Thunk middleware 的呢？我們使用了 [`applyMiddleware()`](../api/applyMiddleware.md)，如下：
 
 #### `index.js`
 
@@ -401,8 +401,8 @@ const loggerMiddleware = createLogger()
 const store = createStore(
   rootReducer,
   applyMiddleware(
-    thunkMiddleware, // 允许我们 dispatch() 函数
-    loggerMiddleware // 一个很便捷的 middleware，用来打印 action 日志
+    thunkMiddleware, // 允許我們 dispatch() 函數
+    loggerMiddleware // 一個很便捷的 middleware，用來列印 action 日誌
   )
 )
 
@@ -412,7 +412,7 @@ store.dispatch(fetchPosts('reactjs')).then(() =>
 )
 ```
 
-thunk 的一个优点是它的结果可以再次被 dispatch：
+thunk 的一個優點是它的結果可以再次被 dispatch：
 
 #### `actions.js`
 
@@ -459,25 +459,25 @@ function shouldFetchPosts(state, subreddit) {
 
 export function fetchPostsIfNeeded(subreddit) {
 
-  // 注意这个函数也接收了 getState() 方法
-  // 它让你选择接下来 dispatch 什么。
+  // 注意這個函數也接收了 getState() 方法
+  // 它讓你選擇接下來 dispatch 什麼。
 
-  // 当缓存的值是可用时，
-  // 减少网络请求很有用。
+  // 當快取的值是可用時，
+  // 減少網路請求很有用。
 
   return (dispatch, getState) => {
     if (shouldFetchPosts(getState(), subreddit)) {
-      // 在 thunk 里 dispatch 另一个 thunk！
+      // 在 thunk 裡 dispatch 另一個 thunk！
       return dispatch(fetchPosts(subreddit))
     } else {
-      // 告诉调用代码不需要再等待。
+      // 告訴呼叫程式碼不需要再等待。
       return Promise.resolve()
     }
   }
 }
 ```
 
-这可以让我们逐步开发复杂的异步控制流，同时保持代码整洁如初：
+這可以讓我們逐步開發複雜的非同步控制流，同時保持程式碼整潔如初：
 
 #### `index.js`
 
@@ -487,22 +487,22 @@ store.dispatch(fetchPostsIfNeeded('reactjs')).then(() =>
 )
 ```
 
->##### 服务端渲染须知
+>##### 服務端渲染須知
 
->异步 action 创建函数对于做服务端渲染非常方便。你可以创建一个 store，dispatch 一个异步 action 创建函数，这个 action 创建函数又 dispatch 另一个异步 action 创建函数来为应用的一整块请求数据，同时在 Promise 完成和结束时才 render 界面。然后在 render 前，store 里就已经存在了需要用的 state。
+>非同步 action 建立函數對於做服務端渲染非常方便。你可以建立一個 store，dispatch 一個非同步 action 建立函數，這個 action 建立函數又 dispatch 另一個非同步 action 建立函數來為應用的一整塊請求資料，同時在 Promise 完成和結束時才 render 介面。然後在 render 前，store 裡就已經存在了需要用的 state。
 
-[Thunk middleware](https://github.com/gaearon/redux-thunk) 并不是 Redux 处理异步 action 的唯一方式：
-* 你可以使用 [redux-promise](https://github.com/acdlite/redux-promise) 或者 [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware) 来 dispatch Promise 替代函数。
-* 你可以使用 [redux-observable](https://github.com/redux-observable/redux-observable) 来 dispatch Observable。
-* 你可以使用 [redux-saga](https://github.com/yelouafi/redux-saga/) 中间件来创建更加复杂的异步 action。
-* 你甚至可以写一个自定义的 middleware 来描述 API 请求，就像这个[真实场景的案例](../introduction/Examples.html#real-world)中的做法一样。
+[Thunk middleware](https://github.com/gaearon/redux-thunk) 並不是 Redux 處理非同步 action 的唯一方式：
+* 你可以使用 [redux-promise](https://github.com/acdlite/redux-promise) 或者 [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware) 來 dispatch Promise 替代函數。
+* 你可以使用 [redux-observable](https://github.com/redux-observable/redux-observable) 來 dispatch Observable。
+* 你可以使用 [redux-saga](https://github.com/yelouafi/redux-saga/) 中介軟體來建立更加複雜的非同步 action。
+* 你甚至可以寫一個自定義的 middleware 來描述 API 請求，就像這個[真實場景的案例](../introduction/Examples.html#real-world)中的做法一樣。
 
-你也可以先尝试一些不同做法，选择喜欢的，并使用下去，不论有没有使用到 middleware 都行。
+你也可以先嚐試一些不同做法，選擇喜歡的，並使用下去，不論有沒有使用到 middleware 都行。
 
-## 连接到 UI
+## 連線到 UI
 
-Dispatch 同步 action 与异步 action 间并没有区别，所以就不展开讨论细节了。参照 [搭配 React](../basics/UsageWithReact.md) 获得 React 组件中使用 Redux 的介绍。参照 [示例：Reddit API](ExampleRedditAPI.md) 来获取本例的完整代码。
+Dispatch 同步 action 與非同步 action 間並沒有區別，所以就不展開討論細節了。參照 [搭配 React](../basics/UsageWithReact.md) 獲得 React 元件中使用 Redux 的介紹。參照 [示例：Reddit API](ExampleRedditAPI.md) 來獲取本例的完整程式碼。
 
 ## 下一步
 
-阅读 [异步数据流](AsyncFlow.md) 来整理一下异步 action 是如何适用于 Redux 数据流的。
+閱讀 [非同步資料流](AsyncFlow.md) 來整理一下非同步 action 是如何適用於 Redux 資料流的。
