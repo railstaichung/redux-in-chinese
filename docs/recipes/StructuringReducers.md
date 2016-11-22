@@ -1,33 +1,33 @@
-# 组织 Reducer
+# 組織 Reducer
 
-作为核心概念， Redux 真的是一种十分简单的设计模式：所有你“写”的逻辑都集中在一个单独的函数中，并且执行这些逻辑的唯一方式就是传给 Redux 一个能够描述当时情景的普通对象（plain object）。Redux store 调用这些逻辑函数，并传入当前的 state tree 以及这些描述对象，返回新的 state tree，接着 Redux store 便开始通知这些订阅者（subscriber）state tree 已经改变了。
+作為核心概念， Redux 真的是一種十分簡單的設計模式：所有你“寫”的邏輯都集中在一個單獨的函數中，並且執行這些邏輯的唯一方式就是傳給 Redux 一個能夠描述當時情景的普通物件（plain object）。Redux store 呼叫這些邏輯函數，並傳入當前的 state tree 以及這些描述物件，返回新的 state tree，接著 Redux store 便開始通知這些訂閱者（subscriber）state tree 已經改變了。
 
-Redux 设置了一些基本的限制来保证这些逻辑函数的正常工作，就像 [Reducers](../basics/Reducers.md) 里面描述的一样，它必须有类似 `(previousState, action) => newState` 这样的结构，它们通常被称作 **reducer 函数**，并且必须是**纯**函数和可预测的。
+Redux 設定了一些基本的限制來保證這些邏輯函數的正常工作，就像 [Reducers](../basics/Reducers.md) 裡面描述的一樣，它必須有類似 `(previousState, action) => newState` 這樣的結構，它們通常被稱作 **reducer 函數**，並且必須是**純**函數和可預測的。
 
-在这之后，只要遵循这些基本的规则，Redux 就不会关心你在这些 reducer 函数中是如何组织逻辑的。这既能带来会多的自由，也会导致很多的困惑。不过在写这些 reducer 的时候，也会有很多的常见的模式以及很多需要注意的相关信息与概念。而随着应用规模逐渐变大，这些模式在管理这些错综复杂的 reducer 时，处理真实世界的数据时，以及优化 UI 性能时都起着至关重要的作用。
+在這之後，只要遵循這些基本的規則，Redux 就不會關心你在這些 reducer 函數中是如何組織邏輯的。這既能帶來會多的自由，也會導致很多的困惑。不過在寫這些 reducer 的時候，也會有很多的常見的模式以及很多需要注意的相關資訊與概念。而隨著應用規模逐漸變大，這些模式在管理這些錯綜複雜的 reducer 時，處理真實世界的資料時，以及優化 UI 效能時都起著至關重要的作用。
 
 
-### 写 Reducer 时必要的概念
+### 寫 Reducer 時必要的概念
 
-这些概念中的一部分，可能已经在别的 Redux 文档中描述过了。其他的概念也都是些比较普通的或者可以适用于 Redux 外的，这里有许多文章来详细的解释这些概念。这些概念和技巧是能写出符合 Solid 原则的 Redux reducer 逻辑的基础。
+這些概念中的一部分，可能已經在別的 Redux 文件中描述過了。其他的概念也都是些比較普通的或者可以適用於 Redux 外的，這裡有許多文章來詳細的解釋這些概念。這些概念和技巧是能寫出符合 Solid 原則的 Redux reducer 邏輯的基礎。
 
-**深入的理解**这些概念是你要学习更高级的 Redux 技术之前必不可少的事情。这里有一个推荐的阅读列表。
+**深入的理解**這些概念是你要學習更高階的 Redux 技術之前必不可少的事情。這裡有一個推薦的閱讀列表。
 
 #### [必要的概念](./reducers/PrerequisiteConcepts.md)
 
-另外还值得注意的是，在特定的应用特定的架构下，这些建议可能也不是非常的适合。举个例子，如果一个应用使用了 Immutable.js Map 来存储数据，那么它组织 reducer 逻辑的时候就可能和用普通对象存储数据的情况不一样。 这些文档主要假设我们使用的都是 Javascript 普通对象，但即使你使用一些其他的工具，这里的很多规则其实依然适用。
+另外還值得注意的是，在特定的應用特定的架構下，這些建議可能也不是非常的適合。舉個例子，如果一個應用使用了 Immutable.js Map 來儲存資料，那麼它組織 reducer 邏輯的時候就可能和用普通物件儲存資料的情況不一樣。 這些文件主要假設我們使用的都是 Javascript 普通物件，但即使你使用一些其他的工具，這裡的很多規則其實依然適用。
 
 
 
 Reducer 概念和技巧
 
-- [基本 Reducer 结构](./reducers/BasicReducerStructure.md)
-- [拆分 Reducer 逻辑](./reducers/SplittingReducerLogic.md)
-- [重构 Reducer 的例子](./reducers/RefactoringReducersExample.md)
+- [基本 Reducer 結構](./reducers/BasicReducerStructure.md)
+- [拆分 Reducer 邏輯](./reducers/SplittingReducerLogic.md)
+- [重構 Reducer 的例子](./reducers/RefactoringReducersExample.md)
 - [使用 `combineReducers`](./reducers/UsingCombineReducers.md)
 - [超越 `combineReducers`](./reducers/BeyondCombineReducers.md)
-- [范式化 State 结构](./reducers/NormalizingStateShape.md)
-- [更新范式化数据](./reducers/UpdatingNormalizedData.md)
-- [重用 Reducer 逻辑](./reducers/ReusingReducerLogic.md)
+- [正規化化 State 結構](./reducers/NormalizingStateShape.md)
+- [更新正規化化資料](./reducers/UpdatingNormalizedData.md)
+- [重用 Reducer 邏輯](./reducers/ReusingReducerLogic.md)
 - [Immutable 的更新模式](./reducers/ImmutableUpdatePatterns.md)
 - [初始化 State](./reducers/InitializingState.md)
