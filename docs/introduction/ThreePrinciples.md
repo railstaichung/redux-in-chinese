@@ -1,12 +1,12 @@
-# 三大原则
+# 三大原則
 
-Redux 可以用这三个基本原则来描述：
+Redux 可以用這三個基本原則來描述：
 
-### 单一数据源
+### 單一資料來源
 
-**整个应用的 [state](../Glossary.md#state) 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 [store](../Glossary.md#store) 中。**
+**整個應用的 [state](../Glossary.md#state) 被儲存在一棵 object tree 中，並且這個 object tree 只存在於唯一一個 [store](../Glossary.md#store) 中。**
 
-这让同构应用开发变得非常容易。来自服务端的 state 可以在无需编写更多代码的情况下被序列化并注入到客户端中。由于是单一的 state tree ，调试也变得非常容易。在开发中，你可以把应用的 state 保存在本地，从而加快开发速度。此外，受益于单一的 state tree ，以前难以实现的如“撤销/重做”这类功能也变得轻而易举。
+這讓同構應用開發變得非常容易。來自服務端的 state 可以在無需編寫更多程式碼的情況下被序列化並注入到客戶端中。由於是單一的 state tree ，偵錯也變得非常容易。在開發中，你可以把應用的 state 儲存在本地，從而加快開發速度。此外，受益於單一的 state tree ，以前難以實現的如“撤銷/重做”這類功能也變得輕而易舉。
 
 ```js
 console.log(store.getState())
@@ -28,11 +28,11 @@ console.log(store.getState())
 */
 ```
 
-### State 是只读的
+### State 是只讀的
 
-**惟一改变 state 的方法就是触发 [action](../Glossary.md#action)，action 是一个用于描述已发生事件的普通对象。**
+**惟一改變 state 的方法就是觸發 [action](../Glossary.md#action)，action 是一個用於描述已發生事件的普通物件。**
 
-这样确保了视图和网络请求都不能直接修改 state，相反它们只能表达想要修改的意图。因为所有的修改都被集中化处理，且严格按照一个接一个的顺序执行，因此不用担心 race condition 的出现。 Action 就是普通对象而已，因此它们可以被日志打印、序列化、储存、后期调试或测试时回放出来。
+這樣確保了檢視和網路請求都不能直接修改 state，相反它們只能表達想要修改的意圖。因為所有的修改都被集中化處理，且嚴格按照一個接一個的順序執行，因此不用擔心 race condition 的出現。 Action 就是普通物件而已，因此它們可以被日誌列印、序列化、儲存、後期偵錯或測試時回放出來。
 
 ```js
 store.dispatch({
@@ -46,11 +46,11 @@ store.dispatch({
 });
 ```
 
-### 使用纯函数来执行修改
+### 使用純函數來執行修改
 
-**为了描述 action 如何改变 state tree ，你需要编写 [reducers](../Glossary.md#reducer)。**
+**為了描述 action 如何改變 state tree ，你需要編寫 [reducers](../Glossary.md#reducer)。**
 
-Reducer 只是一些纯函数，它接收先前的 state 和 action，并返回新的 state。刚开始你可以只有一个 reducer，随着应用变大，你可以把它拆成多个小的 reducers，分别独立地操作 state tree 的不同部分，因为 reducer 只是函数，你可以控制它们被调用的顺序，传入附加数据，甚至编写可复用的 reducer 来处理一些通用任务，如分页器。
+Reducer 只是一些純函數，它接收先前的 state 和 action，並返回新的 state。剛開始你可以只有一個 reducer，隨著應用變大，你可以把它拆成多個小的 reducers，分別獨立地操作 state tree 的不同部分，因為 reducer 只是函數，你可以控制它們被呼叫的順序，傳入附加資料，甚至編寫可複用的 reducer 來處理一些通用任務，如分頁器。
 
 ```js
 
@@ -92,4 +92,4 @@ let reducer = combineReducers({ visibilityFilter, todos })
 let store = createStore(reducer)
 ```
 
-就是这样，现在你应该明白 Redux 是怎么回事了。
+就是這樣，現在你應該明白 Redux 是怎麼回事了。

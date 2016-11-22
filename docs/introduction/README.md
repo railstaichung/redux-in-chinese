@@ -1,7 +1,7 @@
-## 介绍
+## 介紹
 
-* [动机](Motivation.md)
-* [三大原则](ThreePrinciples.md)
-* [先前技术](PriorArt.md)
-* [生态系统](Ecosystem.md)
+* [動機](Motivation.md)
+* [三大原則](ThreePrinciples.md)
+* [先前技術](PriorArt.md)
+* [生態系統](Ecosystem.md)
 * [示例](Examples.md)
