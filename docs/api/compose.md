@@ -1,21 +1,21 @@
 # `compose(...functions)`
 
-从右到左来组合多个函数。
+從右到左來組合多個函數。
 
-这是函数式编程中的方法，为了方便，被放到了 Redux 里。
-当需要把多个 [store 增强器](../Glossary.md#store-enhancer) 依次执行的时候，需要用到它。
+這是函數語言程式設計中的方法，為了方便，被放到了 Redux 裡。
+當需要把多個 [store 增強器](../Glossary.md#store-enhancer) 依次執行的時候，需要用到它。
 
-#### 参数
+#### 參數
 
-1. (*arguments*): 需要合成的多个函数。每个函数都接收一个函数作为参数，然后返回一个函数。
+1. (*arguments*): 需要合成的多個函數。每個函數都接收一個函數作為參數，然後返回一個函數。
 
 #### 返回值
 
-(*Function*): 从右到左把接收到的函数合成后的最终函数。
+(*Function*): 從右到左把接收到的函數合成後的最終函數。
 
 #### 示例
 
-下面示例演示了如何使用 `compose` 增强 [store](Store.md)，这个 store 与 [`applyMiddleware`](applyMiddleware.md) 和 [redux-devtools](https://github.com/gaearon/redux-devtools) 一起使用。
+下面示例演示瞭如何使用 `compose` 增強 [store](Store.md)，這個 store 與 [`applyMiddleware`](applyMiddleware.md) 和 [redux-devtools](https://github.com/gaearon/redux-devtools) 一起使用。
 
 ```js
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
@@ -27,9 +27,9 @@ let middleware = [thunk];
 
 let finalCreateStore;
 
-// 生产环境中，我们希望只使用 middleware。
-// 而在开发环境中，我们还希望使用一些 redux-devtools 提供的一些 store 增强器。
-// UglifyJS 会在构建过程中把一些不会执行的死代码去除掉。
+// 生產環境中，我們希望只使用 middleware。
+// 而在開發環境中，我們還希望使用一些 redux-devtools 提供的一些 store 增強器。
+// UglifyJS 會在構建過程中把一些不會執行的死程式碼去除掉。
 
 if (process.env.NODE_ENV === 'production') {
   finalCreateStore = applyMiddleware(...middleware)(createStore);
@@ -43,7 +43,7 @@ if (process.env.NODE_ENV === 'production') {
     createStore
   );
 
-  // 不使用 compose 来写是这样子：
+  // 不使用 compose 來寫是這樣子：
   //
   // finalCreateStore =
   //   applyMiddleware(middleware)(
@@ -58,6 +58,6 @@ if (process.env.NODE_ENV === 'production') {
 let store = finalCreateStore(reducer);
 ```
 
-#### 小贴士
+#### 小貼士
 
-* `compose` 做的只是让你不使用深度右括号的情况下来写深度嵌套的函数。不要觉得它很复杂。
+* `compose` 做的只是讓你不使用深度右括號的情況下來寫深度巢狀的函數。不要覺得它很複雜。

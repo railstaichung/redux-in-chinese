@@ -1,14 +1,14 @@
 # Store
 
-Store 就是用来维持应用所有的 [state 树](../Glossary.md#state) 的一个对象。
-改变 store 内 state 的惟一途径是对它 dispatch 一个 [action](../Glossary.md#action)。
+Store 就是用來維持應用所有的 [state 樹](../Glossary.md#state) 的一個物件。
+改變 store 內 state 的惟一途徑是對它 dispatch 一個 [action](../Glossary.md#action)。
 
-Store 不是类。它只是有几个方法的对象。
-要创建它，只需要把根部的 [reducing 函数](../Glossary.md#reducer) 传递给 [`createStore`](createStore.md)。
+Store 不是類。它只是有幾個方法的物件。
+要建立它，只需要把根部的 [reducing 函數](../Glossary.md#reducer) 傳遞給 [`createStore`](createStore.md)。
 
->##### Flux 用户使用注意
+>##### Flux 使用者使用注意
 
->如果你以前使用 Flux，那么你只需要注意一个重要的区别。Redux 没有 Dispatcher 且不支持多个 store。相反，只有一个单一的 store 和一个根级的 reduce 函数（reducer）。随着应用不断变大，你应该把根级的 reducer 拆成多个小的 reducers，分别独立地操作 state 树的不同部分，而不是添加新的 stores。这就像一个 React 应用只有一个根级的组件，这个根组件又由很多小组件构成。
+>如果你以前使用 Flux，那麼你只需要注意一個重要的區別。Redux 沒有 Dispatcher 且不支援多個 store。相反，只有一個單一的 store 和一個根級的 reduce 函數（reducer）。隨著應用不斷變大，你應該把根級的 reducer 拆成多個小的 reducers，分別獨立地操作 state 樹的不同部分，而不是新增新的 stores。這就像一個 React 應用只有一個根級的元件，這個根元件又由很多小元件構成。
 
 ### Store 方法
 
@@ -21,29 +21,29 @@ Store 不是类。它只是有几个方法的对象。
 
 ### <a id='getState'></a>[`getState()`](#getState)
 
-返回应用当前的 state 树。  
-它与 store 的最后一个 reducer 返回值相同。
+返回應用當前的 state 樹。
+它與 store 的最後一個 reducer 返回值相同。
 
 #### 返回值
 
-*(any)*: 应用当前的 state 树。
+*(any)*: 應用當前的 state 樹。
 
 <hr>
 
 ### <a id='dispatch'></a>[`dispatch(action)`](#dispatch)
 
-分发 action。这是触发 state 变化的惟一途径。
+分發 action。這是觸發 state 變化的惟一途徑。
 
-会使用当前 [`getState()`](#getState) 的结果和传入的 `action` 以同步方式的调用 store 的 reduce 函数。返回值会被作为下一个 state。从现在开始，这就成为了 [`getState()`](#getState) 的返回值，同时变化监听器(change listener)会被触发。
+會使用當前 [`getState()`](#getState) 的結果和傳入的 `action` 以同步方式的呼叫 store 的 reduce 函數。返回值會被作為下一個 state。從現在開始，這就成為了 [`getState()`](#getState) 的返回值，同時變化監聽器(change listener)會被觸發。
 
->##### Flux 用户使用注意
->当你在 [reducer](../Glossary.md#reducer) 内部调用 `dispatch` 时，将会抛出错误提示“Reducers may not dispatch actions.（Reducer 内不能 dispatch action）”。这就相当于 Flux 里的 “Cannot dispatch in a middle of dispatch（dispatch 过程中不能再 dispatch）”，但并不会引起对应的错误。在 Flux 里，当 Store 处理 action 和触发 update 事件时，dispatch 是禁止的。这个限制并不好，因为他限制了不能在生命周期回调里 dispatch action，还有其它一些本来很正常的地方。
+>##### Flux 使用者使用注意
+>當你在 [reducer](../Glossary.md#reducer) 內部呼叫 `dispatch` 時，將會拋出錯誤提示“Reducers may not dispatch actions.（Reducer 內不能 dispatch action）”。這就相當於 Flux 裡的 “Cannot dispatch in a middle of dispatch（dispatch 過程中不能再 dispatch）”，但並不會引起對應的錯誤。在 Flux 裡，當 Store 處理 action 和觸發 update 事件時，dispatch 是禁止的。這個限制並不好，因為他限制了不能在生命週期回撥裡 dispatch action，還有其它一些本來很正常的地方。
 
->在 Redux 里，只会在根 reducer 返回新 state 结束后再会调用事件监听器，因此，你可以在事件监听器里再做 dispatch。惟一使你不能在 reducer 中途 dispatch 的原因是要确保 reducer 没有副作用。如果 action 处理会产生副作用，正确的做法是使用异步 [action 创建函数](../Glossary.md#action-creator)。
+>在 Redux 裡，只會在根 reducer 返回新 state 結束後再會呼叫事件監聽器，因此，你可以在事件監聽器裡再做 dispatch。惟一使你不能在 reducer 中途 dispatch 的原因是要確保 reducer 沒有副作用。如果 action 處理會產生副作用，正確的做法是使用非同步 [action 建立函數](../Glossary.md#action-creator)。
 
-#### 参数
+#### 參數
 
-1. `action` (*Object*<sup>†</sup>): 描述应用变化的普通对象。Action 是把数据传入 store 的惟一途径，所以任何数据，无论来自 UI 事件，网络回调或者是其它资源如 WebSockets，最终都应该以 action 的形式被 dispatch。按照约定，action 具有 `type` 字段来表示它的类型。type 也可被定义为常量或者是从其它模块引入。最好使用字符串，而不是 [Symbols](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) 作为 action，因为字符串是可以被序列化的。除了 `type` 字段外，action 对象的结构完全取决于你。参照 [Flux 标准 Action](https://github.com/acdlite/flux-standard-action) 获取如何组织 action 的建议。
+1. `action` (*Object*<sup>†</sup>): 描述應用變化的普通物件。Action 是把資料傳入 store 的惟一途徑，所以任何資料，無論來自 UI 事件，網路回撥或者是其它資源如 WebSockets，最終都應該以 action 的形式被 dispatch。按照約定，action 具有 `type` 欄位來表示它的類型。type 也可被定義為常量或者是從其它模組引入。最好使用字元串，而不是 [Symbols](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Symbol) 作為 action，因為字元串是可以被序列化的。除了 `type` 欄位外，action 物件的結構完全取決於你。參照 [Flux 標準 Action](https://github.com/acdlite/flux-standard-action) 獲取如何組織 action 的建議。
 
 #### 返回值
 
@@ -51,13 +51,13 @@ Store 不是类。它只是有几个方法的对象。
 
 #### 注意
 
-<sup>†</sup> 使用 [`createStore`](createStore.md) 创建的 “纯正” store 只支持普通对象类型的 action，而且会立即传到 reducer 来执行。
+<sup>†</sup> 使用 [`createStore`](createStore.md) 建立的 “純正” store 只支援普通物件類型的 action，而且會立即傳到 reducer 來執行。
 
-但是，如果你用 [`applyMiddleware`](applyMiddleware.md) 来套住 [`createStore`](createStore.md) 时，middleware 可以修改 action 的执行，并支持执行 dispatch [intent（意图）](../Glossary.md#intent)。Intent 一般是异步操作如 Promise、Observable 或者 Thunk。
+但是，如果你用 [`applyMiddleware`](applyMiddleware.md) 來套住 [`createStore`](createStore.md) 時，middleware 可以修改 action 的執行，並支援執行 dispatch [intent（意圖）](../Glossary.md#intent)。Intent 一般是非同步操作如 Promise、Observable 或者 Thunk。
 
-Middleware 是由社区创建，并不会同 Redux 一起发行。你需要手动安装 [redux-thunk](https://github.com/gaearon/redux-thunk) 或者 [redux-promise](https://github.com/acdlite/redux-promise) 库。你也可以创建自己的 middleware。
+Middleware 是由社羣建立，並不會同 Redux 一起發行。你需要手動安裝 [redux-thunk](https://github.com/gaearon/redux-thunk) 或者 [redux-promise](https://github.com/acdlite/redux-promise) 庫。你也可以建立自己的 middleware。
 
-想学习如何描述异步 API 调用？看一下 action 创建函数里当前的 state，执行一个有副作用的操作，或者以链式操作执行它们，参照 [`applyMiddleware`](applyMiddleware.md) 中的示例。
+想學習如何描述非同步 API 呼叫？看一下 action 建立函數裡當前的 state，執行一個有副作用的操作，或者以鏈式操作執行它們，參照 [`applyMiddleware`](applyMiddleware.md) 中的示例。
 
 #### 示例
 
@@ -80,19 +80,19 @@ store.dispatch(addTodo('Read about the middleware'))
 
 ### <a id='subscribe'></a>[`subscribe(listener)`](#subscribe)
 
-添加一个变化监听器。每当 dispatch action 的时候就会执行，state 树中的一部分可能已经变化。你可以在回调函数里调用 [`getState()`](#getState) 来拿到当前 state。
+新增一個變化監聽器。每當 dispatch action 的時候就會執行，state 樹中的一部分可能已經變化。你可以在回撥函數裡呼叫 [`getState()`](#getState) 來拿到當前 state。
 
-这是一个底层 API。多数情况下，你不会直接使用它，会使用一些 React（或其它库）的绑定。如果你想让回调函数执行的时候使用当前的 state，你可以 [把 store 转换成一个 Observable 或者写一个定制的 `observeStore` 工具](https://github.com/rackt/redux/issues/303#issuecomment-125184409)。
+這是一個底層 API。多數情況下，你不會直接使用它，會使用一些 React（或其它庫）的繫結。如果你想讓回撥函數執行的時候使用當前的 state，你可以 [把 store 轉換成一個 Observable 或者寫一個定製的 `observeStore` 工具](https://github.com/rackt/redux/issues/303#issuecomment-125184409)。
 
-如果需要解绑这个变化监听器，执行 `subscribe` 返回的函数即可。
+如果需要解綁這個變化監聽器，執行 `subscribe` 返回的函數即可。
 
-#### 参数
+#### 參數
 
-1. `listener` (*Function*): 每当 dispatch action 的时候都会执行的回调。state 树中的一部分可能已经变化。你可以在回调函数里调用 [`getState()`](#getState) 来拿到当前 state。store 的 reducer 应该是纯函数，因此你可能需要对 state 树中的引用做深度比较来确定它的值是否有变化。
+1. `listener` (*Function*): 每當 dispatch action 的時候都會執行的回撥。state 樹中的一部分可能已經變化。你可以在回撥函數裡呼叫 [`getState()`](#getState) 來拿到當前 state。store 的 reducer 應該是純函數，因此你可能需要對 state 樹中的引用做深度比較來確定它的值是否有變化。
 
 ##### 返回值
 
-(*Function*): 一个可以解绑变化监听器的函数。
+(*Function*): 一個可以解綁變化監聽器的函數。
 
 ##### 示例
 
@@ -119,10 +119,10 @@ handleChange()
 
 ### <a id='replaceReducer'></a>[`replaceReducer(nextReducer)`](#replaceReducer)
 
-替换 store 当前用来计算 state 的 reducer。
+替換 store 當前用來計算 state 的 reducer。
 
-这是一个高级 API。只有在你需要实现代码分隔，而且需要立即加载一些 reducer 的时候才可能会用到它。在实现 Redux 热加载机制的时候也可能会用到。
+這是一個高階 API。只有在你需要實現程式碼分隔，而且需要立即載入一些 reducer 的時候才可能會用到它。在實現 Redux 熱載入機制的時候也可能會用到。
 
-#### 参数
+#### 參數
 
-1. `reducer` (*Function*) store 会使用的下一个 reducer。
+1. `reducer` (*Function*) store 會使用的下一個 reducer。
